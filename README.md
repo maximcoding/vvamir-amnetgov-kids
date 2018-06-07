@@ -46,7 +46,7 @@ Instructions and description how to use Amnetiot Kids
  Each manager also can create users for his Organization and assign them role any but not as Administrators .
 
 
-### How to use the System Rules:
+### How to begin with Application:
 * Login as administrators ( admin@gmail.com )
 * Add new Organization
 * Create Users with role (managers or users,or custom role) for it Organization
