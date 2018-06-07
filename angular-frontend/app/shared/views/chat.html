@@ -1,0 +1,105 @@
+<!--CHAT-->
+<div class="col-lg-10 col-lg-offset-1 jibbi">
+    <!--Conversations-->
+    <div class="left col-lg-3">
+        <div class="top">
+            <input type="text"
+                   class="form-control scrollable-menu search-header"
+                   placeholder="{{'app.shared.common.search_user' | translate}}"
+                   ng-change="searchUser(queryUser)"
+                   ng-model="queryUser"
+                   data-typeahead="org_user as org_user.firstname for org_user in found_users"
+                   typeahead-wait-ms=2
+                   typeahead-focus-first="true"
+                   typeahead-is-open="true"
+                   typeahead-on-select="onAddingUserToConversation($item, $model, $label)"/>
+        </div>
+        <div scroll-glue class="padding-10">
+            <ul class="people scrollable-people list-group">
+                <li class="person"
+                    data-chat="{{talk.about}}"
+                    ng-repeat="talk in conversations"
+                    ng-class="{active : activeWindow === talk.conversation_id}"
+                    ng-click="selectedConversation(talk.conversation_id,$index)">
+                    <img src="http://s16.postimg.org/ete1l89z5/img5.jpg" alt=""/>
+                    <div class="name" ng-if="talk.about == user.organization_id">{{organization_name}}
+                    </div>
+                    <div class="name" ng-if="talk.about != user.organization_id">{{talk.about}}</div>
+                    <!--last message time-->
+                    <div class="time">
+                        <span class="text bold">{{talk.created_at}}</span>
+                        <a ng-if="talk.about != user.organization_id"
+                           ng-click="remove_user_from_conversation(talk)"
+                           style="cursor: pointer">
+                            <i class="fa fa-times btn btn-sm btn-circle red" title="Delete Conversation"></i></a>
+                    </div>
+                    <!--last message-->
+                    <div class="black viewed msg-body"
+                         ng-class="{pulsing : 1 === talk.has_unreaded_messages}"
+                         ng-if="talk.has_unreaded_messages">
+                        {{'app.shared.common.new_message' | translate}}
+                        <!--{{talk.conversation_messages[talk.conversation_messages.length - 1].message}}-->
+                    </div>
+                    <div>
+                        &nbsp;
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--<ul class="people list-group">-->
+        <!--<li class="person" data-chat="person3">-->
+        <!--<img src="http://s3.postimg.org/h9q4sm433/img3.jpg" alt=""/>-->
+        <!--<span class="name">Louis CK</span>-->
+        <!--<span class="time">2:09 PM</span>-->
+        <!--<span class="preview">need a new carpet.</span>-->
+        <!--</li>-->
+        <!--</ul>-->
+    </div>
+    <!--Chat window-->
+    <div class="right col-lg-7">
+        <div class="top">
+                            <span ng-if="active_conversation.about != user.organization_id">
+                                To:<span class="name text-primary bold">{{active_conversation.about}}</span>
+                            </span>
+            <span ng-if="active_conversation.about == user.organization_id">
+                            To: <span class="name text-primary bold">{{organization_name}}</span>
+                            </span>
+        </div>
+        <!--MESSAGESS-->
+        <div class="chat active-chat">
+            <div scroll-glue class="tab-pane padding-10">
+                <div class="conversation-start">
+                    <span>{{active_conversation.created_at}}</span>
+                </div>
+                <ul class="list-group">
+                    <li style="list-style: none"
+                        ng-show="active_conversation.conversation_messages.length >= 1"
+                        ng-repeat="message in active_conversation.conversation_messages">
+                        <!--OTHER-->
+                        <div class="bubble you" ng-if="message.sender_id != user.id">
+                            <div class="text bold">{{message.firstname}}</div>
+                            {{message.message}}
+                            <div class="message-time"> {{message.created_at}}</div>
+                        </div>
+                        <!--ME-->
+                        <div class="bubble me" ng-if="message.sender_id == user.id">
+                            <span ng-if="user_online == 1" class="status online"></span>
+                            <span ng-if="user_online == 0" class="status offline"></span>
+                            <div class="text bold text-success">me</div>
+                            <span class="text text-primary">{{message.message}}</span>
+                            <div class="message-time"> {{message.created_at}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="write">
+            <form ng-submit="create_message(typed_text)" ...>
+                <textarea class="form-control" rows="7" ng-model="typed_text" maxlength="1024"></textarea>
+                <button class="btn btn-primary btn-lg btn-block margin-b-0" ng-submit="create_message(typed_text)">
+                    <i class="fa fa-paper-plane"></i>Send
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

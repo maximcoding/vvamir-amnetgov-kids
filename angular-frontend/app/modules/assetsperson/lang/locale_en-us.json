@@ -1,0 +1,57 @@
+{
+  "asset": {
+    "table": {
+      "search_address":"Search Address",
+      "find_point":"Find Point",
+      "avatar":"Avatar",
+      "edit":"Edit Person",
+      "view":"View Person",
+      "delete":"Delete Person",
+      "male": "Male",
+      "female": "Female",
+      "back": "Beck to Persons",
+      "new": "Add new Person",
+      "name": "Name",
+      "street": "Street",
+      "phone": "Phone",
+      "type": "Type",
+      "serial": "SERIAL NUMBER",
+      "imei": "IMEI",
+      "sim": "SIM",
+      "asset": "Asset",
+      "reported_at": "Reported at",
+      "ip_address": "IP ADDRESS",
+      "assign_to": "Assign to",
+      "no_free_resources": "No free resources",
+      "primary_resource": "Primary Resource",
+      "secondary_resource": "Second Resource",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "city": "City",
+      "card_id": "Card ID",
+      "default_point": "Default Point of Interest",
+      "birthdate": "Birth Date",
+      "gender": "Gender",
+      "blood_type": "Blood Type",
+      "no_one": "No one",
+      "organization": "Organization",
+      "category": "Category",
+      "resource": "Resource",
+      "watcher_group": "Watchers",
+      "default_point_of_interest": "Default POI",
+      "partners": "Partners",
+      "description": "Description",
+      "web": "Web",
+      "status": "Status",
+      "created_at": "Created at",
+      "updated_at": "Last Update",
+      "actions": "Actions"
+    },
+    "dashboard": {
+      "new": "Add New"
+    },
+    "messages": {
+      "updated_successfully": "Successfully Updated"
+    }
+  }
+}

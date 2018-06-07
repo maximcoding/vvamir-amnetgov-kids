@@ -1,0 +1,41 @@
+{
+  "user": {
+    "table": {
+      "country":"Country",
+      "timezone":"Timezone",
+      "delete":"Delete User",
+      "male": "Male",
+      "female": "Female",
+      "password": "Password",
+      "confirm_password":"Confirm Password",
+      "gender": "Gender",
+      "back": "Back to Users",
+      "activate": "Activate",
+      "city":"City",
+      "street":"Street",
+      "actions":"Actions",
+      "avatar": "Avatar",
+      "firstname": "First Name",
+      "lastname": "Last name",
+      "organization": "Organization",
+      "email": "Email",
+      "role": "Role",
+      "status": "Status",
+      "created_at": "Created at",
+      "updated_at": "Updated at",
+      "address": "Address",
+      "phone": "Phone",
+      "type": "Type",
+      "partners": "Partners",
+      "description": "Description",
+      "web": "Web",
+      "status": "Status",
+      "created_at": "Created at",
+      "actions": "Actions",
+      "new": "Add New User"
+    },
+    "dashboard": {
+      "new": "New"
+    }
+  }
+}

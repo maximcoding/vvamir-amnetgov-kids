@@ -1,0 +1,42 @@
+{
+  "asset": {
+    "table": {
+      "view": "View Resource",
+      "edit": "Edit Resource",
+      "delete": "Delete Resource",
+      "yes": "Yes",
+      "no": "No",
+      "activate": "Activate",
+      "not_active": "Not Active",
+      "active": "Active",
+      "deleted": "Deleted",
+      "back": "Back to Resource",
+      "new": "Add new Resource",
+      "name": "Name",
+      "address": "Address",
+      "phone": "Phone",
+      "type": "Type",
+      "serial": "SERIAL NUMBER",
+      "imei": "IMEI",
+      "sim": "SIM",
+      "ip_address": "IP ADDRESS",
+      "assign_to": "Assign to",
+      "no_one": "No one",
+      "organization": "Organization",
+      "category": "Category",
+      "partners": "Partners",
+      "description": "Description",
+      "web": "Web",
+      "status": "Status",
+      "created_at": "Created at",
+      "actions": "Actions"
+    },
+    "dashboard": {
+      "new": "Add New"
+    },
+    "messages": {
+      "created_successfully": "Created Successfully",
+      "updated_successfully": "Successfully Updated"
+    }
+  }
+}

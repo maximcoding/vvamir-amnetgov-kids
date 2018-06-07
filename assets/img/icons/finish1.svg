@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Layer 1</title>
+  <path stroke="#6b0000" transform="rotate(-5 315.0202026367189,209.92156982421835) " id="svg_1" d="m28.020202,69.383588l0,0c0,19.404241 64.247146,35.134499 143.50002,35.134499c79.252835,0 143.499962,-15.730257 143.499962,-35.134499l0,0c0,-19.404253 64.247165,-35.134499 143.500039,-35.134499c79.252874,0 143.499962,15.730257 143.499962,35.134499l0,281.075988c0,-19.404241 -64.247107,-35.134522 -143.499962,-35.134522c-79.252874,0 -143.500039,15.730269 -143.500039,35.134522c0,19.404229 -64.247127,35.134487 -143.499962,35.134487c-79.252874,0 -143.50002,-15.730257 -143.50002,-35.134487l0,-281.075988z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="27" fill="#bf1600"/>
+  <text stroke-width="0" font-weight="bold" stroke="#3f0000" transform="matrix(6.6210508391243055,0,0,8.21187536825168,-919.4154578991505,-1367.5546466190638) " xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="24" id="svg_3" y="199.082471" x="186.292922" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" fill="#ffffff">FINISH</text>
+  <line stroke="#6d0000" transform="rotate(10 283.49999999999994,427) " id="svg_4" y2="393.476012" x2="265.129129" y1="460.523992" x1="301.870862" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="27" fill="none"/>
+  <line stroke="#6b0000" id="svg_5" transform="rotate(10 368.5611267089843,382.50958251953097) " y2="304.231494" x2="401.488213" y1="460.787617" x1="335.634027" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="27" fill="none"/>
+ </g>
+</svg>

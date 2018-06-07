@@ -1,0 +1,37 @@
+<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <defs>
+  <linearGradient id="svg_2" x1="0" y1="0" x2="1" y2="0" spreadMethod="pad">
+   <stop stop-color="#fff" offset="1"/>
+   <stop stop-color="#000000" offset="1"/>
+  </linearGradient>
+  <linearGradient id="svg_16" x1="0" y1="0" x2="1" y2="0" spreadMethod="pad">
+   <stop stop-color="#97fc23" stop-opacity="0.992188" offset="0"/>
+   <stop stop-color="#366d00" stop-opacity="0.980469" offset="1"/>
+  </linearGradient>
+  <linearGradient id="svg_7" x1="0" y1="1" x2="1" y2="1" spreadMethod="pad">
+   <stop stop-color="#97fc23" stop-opacity="0.992188" offset="0"/>
+   <stop stop-color="#366d00" stop-opacity="0.980469" offset="1"/>
+  </linearGradient>
+  <linearGradient id="svg_15" x1="0" y1="1" x2="1" y2="1" spreadMethod="pad">
+   <stop stop-color="#97fc23" stop-opacity="0.992188" offset="0"/>
+   <stop stop-color="#366d00" stop-opacity="0.976563" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="582" height="402" stroke-opacity="0" stroke="none" id="canvas_background" fill="url(#svg_2)"/>
+  <g id="canvasGrid" display="none">
+   <rect id="svg_1" width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path stroke="#3d1000" fill="url(#svg_16)" stroke-width="17.5" d="m36.820747,58.358074l0,0c0,15.235942 57.948897,27.587123 129.432486,27.587123c71.483555,0 129.432434,-12.351181 129.432434,-27.587123l0,0c0,-15.235952 57.948914,-27.587123 129.432504,-27.587123c71.48359,0 129.432434,12.351181 129.432434,27.587123l0,220.696984c0,-15.235942 -57.948862,-27.587141 -129.432434,-27.587141c-71.48359,0 -129.432504,12.35119 -129.432504,27.587141c0,15.235933 -57.94888,27.587114 -129.432434,27.587114c-71.48359,0 -129.432486,-12.351181 -129.432486,-27.587114l0,-220.696984z" id="svg_8" transform="rotate(-4.527541160583496 295.68566894531233,168.70655822753858) "/>
+  <line stroke="#3d1000" fill="url(#svg_16)" stroke-width="27.5" x1="131.662909" y1="379.739569" x2="108.342463" y2="320.500916" id="svg_10" stroke-linejoin="null" stroke-linecap="null" transform="rotate(8.300054550170898 120.00268554687555,350.12023925781256) "/>
+  <line stroke="#3d1000" fill="url(#svg_16)" stroke-width="31.5" x1="420.694072" y1="236.689905" x2="450.525731" y2="345.857417" id="svg_11" stroke-linejoin="null" stroke-linecap="null" transform="rotate(29.340269088745117 435.60989379882807,291.273681640625) "/>
+  <text fill="#ff0202" stroke-width="5" x="67.79821" y="229.785846" id="svg_14" font-size="147" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" transform="rotate(0.09423942863941193 297.2600708007764,167.48616027831588) matrix(0.9901095510794079,0,0,0.9493659963758795,-7.0127010962612175,-2.2204461931227453) " stroke="#471100" font-weight="bold">START</text>
+  <ellipse stroke="#3d1000" ry="5" rx="15" id="svg_3" cy="375.5" cx="125.5" stroke-opacity="null" stroke-width="11.5" fill="url(#svg_15)"/>
+  <ellipse stroke="#3d1000" ry="2" rx="14.000002" id="svg_6" cy="344.5" cx="426.500001" stroke-width="17.5" fill="url(#svg_7)"/>
+ </g>
+</svg>

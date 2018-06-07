@@ -1,0 +1,18 @@
+# docker-compose.yml file version
+version: '2'
+
+services:
+  postgresdb:
+    image: postgres:alpine
+    container_name: angularamnet-postgres
+    environment:
+      - POSTGRES_DB=angularamnet
+      - POSTGRES_USER=angularamnet
+      - POSTGRES_PASSWORD=angularamnet
+    ports:
+      - "5432:5432"
+    networks:
+      - app-tier
+networks:
+  app-tier:
+    driver: bridge

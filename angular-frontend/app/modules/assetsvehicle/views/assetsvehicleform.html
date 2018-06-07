@@ -1,0 +1,155 @@
+<div class="panel panel-default">
+    <!--HEADING-->
+    <div class="panel-heading">
+        <ng-include src="'app/templates/form-header.tmpl.html'"></ng-include>
+    </div>
+    <!--HEADING-->
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <div class="col-lg-8 col-sm-8 col-md-8"><br>
+                <!--Organizations-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.organization" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-5 col-md-5 col-lg-5">
+                        <!--     <select ng-model="assetsvehicle.organization_id" ng-change="changeme()"
+                                     ng-options="organization.id as organization.name group by organization.type for organization in organizations"
+                                     class="form-control"
+                                     id="organization_id">
+                             </select>-->
+                        <div class="inner-addon right-addon">
+                            <i class="glyphicon glyphicon-search"></i>
+                            <input type="text"
+                                   class="form-control scrollable-menu search-header"
+                                   placeholder="{{'app.shared.common.search_organization_name' | translate}}"
+                                   ng-change="searchOrganization(queryOrganization)"
+                                   ng-model="queryOrganization"
+                                   data-typeahead="org as org.name for org in organizations"
+                                   typeahead-wait-ms=10
+                                   typeahead-focus-first="true"
+                                   typeahead-is-open="true"
+                                   typeahead-on-select="onSelectOrganization($item, $model, $label)"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="free_resources.length>0">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.resources" | translate}}
+                    </label>
+                    <div class="col-sm-7 col-md-7 col-lg-7">
+                        <div ng-dropdown-multiselect=""
+                             options="free_resources"
+                             selected-model="assetsvehicle.selected_resources"
+                             extra-settings="example11settings"
+                             group-by="category">
+                        </div>
+                    </div>
+                </div>
+                <!--Categories-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.category" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-7 col-md-7 col-lg-7">
+                        <select ng-model="assetsvehicle.assets_category_id"
+                                ng-options="category.id as category.name group by category.type for category in assetscategories"
+                                name="assetscategory"
+                                class="form-control "
+                                id="assetscategory">
+                        </select>
+                    </div>
+                </div>
+
+                <!--Plate-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.plate" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-3 col-ld-3 col-sm-3">
+                        <input class="form-control " type="text" ng-model="assetsvehicle.plate" value="">
+                    </div>
+                </div>
+                <!--Model-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.model" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-6 col-ld-6 col-sm-6">
+                        <input class="form-control" type="text" ng-model="assetsvehicle.model" value=""/>
+                    </div>
+                </div>
+                <!--Type-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.type" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <input type="text" class="form-control" ng-model="assetsvehicle.type "/>
+                    </div>
+                </div>
+                <!--Fuel-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.fuel" | translate}}
+                    </label>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <input type="text" class="form-control" ng-model="assetsvehicle.fuel_type"/>
+                    </div>
+                </div>
+                <!--Mileage-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.mileage" | translate}}
+                    </label>
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <input type="text" class="form-control" ng-model="assetsvehicle.mileage"/>
+                    </div>
+                </div>
+                <!--Passenger Cap-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.passenger_cap" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <input type="text" class="form-control" ng-model="assetsvehicle.passenger_cap"/>
+                    </div>
+                </div>
+                <!--Description-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.description" | translate}}
+                    </label>
+                    <div class="col-sm-7 col-md-7 col-lg-7">
+                        <textarea class="form-control" rows="5" ng-model="assetsvehicle.description"></textarea>
+                    </div>
+                </div>
+                <div class="form-group"
+                     ng-show="$state.includes('admin.createAssetsVehicle') || $state.includes('admin.editAssetsVehicle')">
+                    <label class="col-sm-2 control-label">
+                    </label>
+                    <div class="col-sm-5 col-sm-offset-2">
+                        <button class="btn btn-block btn-primary btn-lg" ng-click="create(assetsvehicle)"
+                                ng-if="!assetsvehicle.id"
+                                ng-class="{'working':isDisabled===true}"><i class="fa fa-save"></i>
+                            {{"app.shared.common.save" | translate }}
+                        </button>
+                        <button class="btn btn-block btn-primary btn-lg" ng-click="update(assetsvehicle)"
+                                ng-if="assetsvehicle.id"
+                                ng-class="{'working':isDisabled===true}"><i class="fa fa-save"></i>
+                            {{"app.shared.common.update" | translate
+                            }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

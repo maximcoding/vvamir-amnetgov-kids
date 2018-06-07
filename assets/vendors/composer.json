@@ -1,0 +1,6 @@
+{
+    "require": {
+        "yaro/socket": "^1.0",
+        "orchid/socket": "^1.5"
+    }
+}

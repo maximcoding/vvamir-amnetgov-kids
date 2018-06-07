@@ -1,0 +1,231 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <ng-include src="'app/templates/form-header.tmpl.html'"></ng-include>
+    </div>
+    <!--HAV HEADING-->
+    <div class="panel-body">
+        <h3 class="text-center">{{$state.current.ncyBreadcrumb.label | translate}}</h3>
+        <form class="form-horizontal">
+            <div class="col-lg-8 col-sm-8 col-md-8 col-md-offset-1"><br>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Organization <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <select ng-model="groupwatcher.groupwatcher_id" name="groupwatcher" id="groupwatcher"
+                                class="form-control">
+                            <option ng-selected="{{groupwatcher.id == groupwatcher.name}}"
+                                    ng-repeat="groupwatcher in groupwatchers" value="{{groupwatcher.id}}">
+                                {{groupwatcher.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Resource
+                    </label>
+                    <div class="col-sm-9">
+                        <select ng-model="groupwatcher.groupwatcher_id" name="groupwatcher" id="groupwatcher"
+                                class="form-control">
+                            <option ng-selected="{{groupwatcher.id == groupwatcher.imei}}"
+                                    ng-repeat="groupwatcher in groupwatchers" value="{{groupwatcher.id}}">
+                                <span>IMEI :</span> {{groupwatcher.imei}} </br>
+                                <span>SERIAL :</span> {{groupwatcher.serial}} </br>
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Passport ID
+                    </label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" ng-model="groupwatcher.plate" value=""/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        First Name
+                    </label>
+                    <div class="col-sm-9">
+                        <input on-place-changed="placeChanged()" type="text" class="form-control"
+                               ng-model="groupwatcher.firstname"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Last Name
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" ng-model="groupwatcher.lastname"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Position
+                    </label>
+                    <div class="col-sm-9">
+                        <select name="position" id="position" class="form-control"
+                                ng-model="groupwatcher.occupation" placeholder="Select">
+                            <option value="" disabled selected>Pupil</option>
+                            <option value="01">Pupil</option>
+                            <option value="02">Driver</option>
+                            <option value="03">Monitor</option>
+                            <option value="04">Teacher</option>
+                            <option value="05">Attendant</option>
+                            <option value="06">Companion</option>
+                            <option value="07">Traveler</option>
+                            <option value="08">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        City
+                    </label>
+                    <div class="col-sm-9">
+                        <input places-auto-complete size=120 component-restrictions="{country:'co'}"
+                               types="['address']"
+                               on-place-changed="placeChanged()" type="search" class="form-control"
+                               placeholder="Type City Name.."
+                               value="{{place.name}}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Address
+                    </label>
+                    <div class="col-sm-9">
+                            <textarea type="text" class="form-control" ng-model="groupwatcher.address">
+                            </textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Default Pickup Address
+                    </label>
+                    <div class="col-sm-9">
+                        <select class="form-control" ng-model="groupwatcher.default_point_of_interest">
+                            <option value="1"></option>
+                            <option value="2"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Description
+                    </label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group connected-group">
+                    <label class="col-sm-3 control-label">
+                        Date of Birth <span class="symbol required"></span>
+                    </label>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <select name="dd" id="dd" class="form-control">
+                                <option value="">DD</option>
+                                <option value="01">1</option>
+                                <option value="02">2</option>
+                                <option value="03">3</option>
+                                <option value="04">4</option>
+                                <option value="05">5</option>
+                                <option value="06">6</option>
+                                <option value="07">7</option>
+                                <option value="08">8</option>
+                                <option value="09">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select name="mm" id="mm" class="form-control">
+                                <option value="">MM</option>
+                                <option value="01">1</option>
+                                <option value="02">2</option>
+                                <option value="03">3</option>
+                                <option value="04">4</option>
+                                <option value="05">5</option>
+                                <option value="06">6</option>
+                                <option value="07">7</option>
+                                <option value="08">8</option>
+                                <option value="09">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="text" placeholder="YYYY" id="yyyy" name="yyyy" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Gender <span class="symbol required"></span>
+                    </label>
+                    <div>
+                        <div class="radio radio-primary radio-inline">
+                            <input type="radio" value="" name="gender" id="gender_female" checked="checked">
+                            <label for="gender_female">Female</label>
+                        </div>
+                        <div class="radio radio-primary radio-inline">
+                            <input type="radio" value="" name="gender" id="gender_male">
+                            <label for="gender_male">male</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        Blood Type
+                    </label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" ng-model="groupwatcher.blood_type"/>
+                    </div>
+                </div>
+                <hr ng-show="$state.includes('admin.createWatcherGroup') || $state.includes('admin.editWatcherGroup')">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                    </label>
+                    <div class="col-sm-5 col-sm-offset-2">
+                        <button class="btn btn-block btn-success btn-lg" ng-click="create(groupwatcher)"
+                                ng-if="!groupwatcher.id"
+                                ng-class="{'working':isDisabled===true}"><i class="fa fa-save"></i>
+                            {{"app.shared.common.save" | translate }}
+                        </button>
+                        <button class="btn btn-block btn-info btn-lg" ng-click="update(groupwatcher)"
+                                ng-if="groupwatcher.id"
+                                ng-class="{'working':isDisabled===true}"><i class="fa fa-save"></i>
+                            {{"app.shared.common.update" | translate
+                            }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

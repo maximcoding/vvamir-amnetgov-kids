@@ -1,0 +1,316 @@
+<div class="panel panel-default yep-card">
+    <div class="panel-heading card-head">
+        <div class="navbar-primary">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div><!-- end navbar-header -->
+            <!--ADD NEW-->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-left" show-if-has-permit="add_assetsresource">
+                    <li style="text-align:left">
+                        <a href="#" ui-sref="admin.createAssetsResource"
+                           class="btn btn-primary">
+                            <i class="fa fa-plus"></i> {{"app.shared.common.add_new" | translate}}
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="navbar-brand" ui-sref="admin.assetsresources">
+                            <span class="text text-uppercase">{{$state.current.ncyBreadcrumb.label | translate}}</span>
+                        </a>
+                    </li>
+                </ul>
+                <!--TOOLS-->
+                <form class="navbar-form navbar-right">
+                    <div class="bars pull-left">
+                        <div class="display-flex ">
+                            <select ng-model="perPage" ng-change="pageChanged(perPage)"
+                                    ng-options="opt as opt.label for opt in units"
+                                    class=" form-control inline col-md-2"
+                                    ng-show="perPageShow"></select>
+                        </div>
+                        <!--HIDE TABLE-->
+                        <button class="btn btn-link has-ripple" data-target="#collapseExample"
+                                data-toggle="collapse"
+                                aria-controls="collapseExample">
+                            <i class="fa fa-table" title="{{'app.shared.common.show_hide_table' | translate}}"></i>
+                        </button>
+                        <button class="btn btn-link has-ripple" ng-click="perPageShow=!perPageShow"><i
+                                class="fa fa-list-ol"></i></button>
+                        <button class="btn btn-link has-ripple" ui-sref="admin.createAssetsResource"
+                                show-if-has-permit="add_assetsresource"><i
+                                class="fa fa-plus "></i>
+                        </button>
+                        <div class="dropdown"
+                             show-if-has-any-permit="delete_user,export_csv,export_xls,export_pdf,import_user">
+                            <a href="" data-target="#" class="dropdown-toggle btn btn-link has-ripple"
+                               data-toggle="dropdown">
+                                <i class="fa fa-ellipsis-v fa-lg"></i>
+                            </a>
+                            <ul class="dropdown-menu yep-panel-menu group-item">
+                                <li class="list-group-item" show-if-has-permit="delete_assetsresource">
+                                    <a ng-click="delete(selection)"><i
+                                            class="fa fa-trash red"></i> {{'app.shared.common.delete' |
+                                        translate}}<span
+                                                class="badge pull-right"></span></a>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="list-group-item">
+                                    <a ng-click="export(selection,'csv')" download
+                                       show-if-has-permit="export_csv"><i
+                                            class="fa fa-file-text-o"></i> {{'app.shared.common.exportToCSV' |
+                                        translate}}<span class="badge pull-right"></span></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a ng-click="export(selection,'xls')" download
+                                       show-if-has-permit="export_xls"><i
+                                            class="fa fa-file-excel-o green"></i>
+                                        {{"app.shared.common.exportToExcel" |
+                                        translate}}<span class="badge pull-right"></span></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a ng-click="export(selection,'pdf')" download
+                                       show-if-has-permit="export_pdf"><i
+                                            class="fa fa-file-pdf-o red"></i> {{"app.shared.common.exportToPDF" |
+                                        translate}}<span class="badge pull-right"></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+                <!--SEARCH-->
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <!--INPUT-->
+                        <input type="text" class="form-control search-header" size="35"
+                               placeholder="{{'app.shared.admin.enterkeyword' | translate}}" ng-model="searchItem"/>
+                        <!--SUBMIT-->
+                        <button type="submit" ng-click="search(searchItem,perPage)"
+                                class="btn btn-sm kid-search-button search-header-btn"><i
+                                class="fa fa-search"></i></button>
+
+                    </div>
+                </form>
+            </div><!-- end collapse -->
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="collapse in" id="collapseExample">
+            <div class="res-table">
+                <table class="table table-striped table-hover table-fixed ellipsis-table">
+                    <thead class="thead-default">
+                    <tr>
+                        <th class="text-center text-uppercase" width="3%"><i
+                                class="glyphicon glyphicon-pushpin"></i>
+                        </th>
+                        <th width="8%" class="text-center text-uppercase">
+                            <a class="text text-primary" style="cursor:n-resize"
+                               ng-click="sortType = 'imei'; sortReverse = !sortReverse">
+                                {{"asset.table.imei" | translate}} <span
+                                    ng-show="sortType == 'imei' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'imei' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th width="8%" class="text-center text-uppercase">
+                            <a class="text text-primary" style="cursor:n-resize"
+                               ng-click="sortType = 'serial'; sortReverse = !sortReverse">
+                                {{"asset.table.serial" | translate}} <span
+                                    ng-show="sortType == 'serial' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'serial' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th width="8%" class="text-center text-uppercase">
+                            <a class="text text-primary" style="cursor:n-resize"
+                               ng-click="sortType = 'sim'; sortReverse = !sortReverse">
+                                {{"asset.table.sim" | translate}} <span
+                                    ng-show="sortType == 'sim' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'sim' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th class="text-center text-uppercase" width="7%">
+                            <a class="text text-primary" style="cursor:n-resize"
+                               ng-click="sortType = 'ip_address'; sortReverse = !sortReverse">
+                                {{"asset.table.ip_address" | translate}} <span
+                                    ng-show="sortType == 'ip_address' && !sortReverse"
+                                    class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'ip_address' && sortReverse"
+                                      class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th class="text-center text-uppercase" width="7%" show-if-has-permit="view_assetsperson">
+                            <a class="text text-primary" style="cursor:n-resize"
+                               ng-click="sortType = 'assets_persons_firstname'; sortReverse = !sortReverse">
+                                {{"asset.table.assign_to" | translate}} <span
+                                    ng-show="sortType == 'assets_persons_firstname' && !sortReverse"
+                                    class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'assets_persons_firstname' && sortReverse"
+                                      class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th class="text-uppercase" width="10%">
+                            <a class="text text-primary" style="cursor:n-resize"
+                               ng-click="sortType = 'category'; sortReverse = !sortReverse">
+                                {{"asset.table.category" | translate}} <span
+                                    ng-show="sortType == 'category' && !sortReverse"
+                                    class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'category' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th width="16%" class="text-uppercase">
+                            <a class="text text-primary" style="cursor:n-resize"
+                               ng-click="sortType = 'organization_name'; sortReverse = !sortReverse">
+                                {{"asset.table.organization" | translate}} <span
+                                    ng-show="sortType == 'organization_name' && !sortReverse"
+                                    class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'organization_name' && sortReverse"
+                                      class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th class="text-center text-uppercase" width="5%">
+                            <a class="text text-primary text-uppercase" style="cursor:n-resize"
+                               ng-click="sortType = 'status'; sortReverse = !sortReverse">
+                                {{"asset.table.status" | translate}} <span
+                                    ng-show="sortType == 'status' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'status' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th class="text-center text-uppercase" width="8%">
+                            <a class="text text-primary" style="cursor:n-resize"
+                               ng-click="sortType = 'created_at'; sortReverse = !sortReverse">
+                                {{"asset.table.created_at" | translate}} <span
+                                    ng-show="sortType == 'created_at' && !sortReverse"
+                                    class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'created_at' && sortReverse"
+                                      class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th class="text-center text-uppercase" width="4%">
+                            <a> {{"asset.table.actions" | translate}}</a>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="assetsresource in assetsresources | orderBy:sortType:sortReverse | filter:searchItem">
+                        <td class="text-center">
+                            <div class="text-center checkbox checkbox-primary">
+                                <input id="{{assetsresource.assets_resource_id}}" type="checkbox"
+                                       class="conchkNumber"
+                                       value="{{assetsresource.assets_resource_id}}"
+                                       ng-checked="selection.indexOf(assetsresource.assets_resource_id) > -1"
+                                       ng-click="toggleSelection(assetsresource.assets_resource_id)">
+                                <label class="text-center" for="{{assetsresource.assets_resource_id}}">
+                                </label>
+                            </div>
+                        </td>
+                        <td class="text-center">{{assetsresource.imei}}</td>
+                        <td class="text-center">{{assetsresource.serial}}</td>
+                        <td class="text-center">{{assetsresource.sim}}</td>
+                        <td class="text-center">{{assetsresource.ip_address}}</td>
+
+                        <td show-if-has-permit="view_assetsperson" ng-if="assetsresource.assets_persons_firstname">
+                            <a href="assets_person_id"
+                               ui-sref="admin.viewAssetsPerson({id:assetsresource.assets_persons_id})"
+                               class="text text-success">
+                                {{assetsresource.assets_persons_firstname}}
+                                {{assetsresource.assets_persons_lastname}}
+                            </a>
+                        </td>
+
+                        <td show-if-has-permit="view_assetsvehicle" ng-if="assetsresource.assets_vehicles_model">
+                            <a href=""
+                               ui-sref="admin.viewAssetsVehicle({id:assetsresource.assets_vehicles_id})"
+                               class="text text-success">
+                                {{assetsresource.assets_vehicles_type}}
+                                {{assetsresource.assets_vehicles_plate}}
+                            </a>
+                        </td>
+                        <td class="text-center"
+                            ng-show="assetsresource.assets_persons_firstname == undefined && assetsresource.assets_vehicles_model == undefined">
+                            <span class="text text-warning" disabled>
+                                {{"asset.table.no_one" | translate}}
+                            </span>
+                        </td>
+                        <!--        &lt;!&ndash;     &lt;!&ndash;IF BELONGS TO HUMAN&ndash;&gt;
+                                <td ng-if="9 == assetsresource.assets_category_id">
+                                    <a ng-repeat="person in assetspersons"
+                                       ng-if="person.primary_resource_id == assetsresource.id"
+                                       ui-sref="admin.viewAssetsPerson({id:person.id})">
+                                        {{person.firstname}} {{person.lastname}}
+                                    </a> 
+                                </td>
+                                &lt;!&ndash;IF BELONGS TO VEHICLE&ndash;&gt;
+                                <td ng-if="10 == assetsresource.assets_category_id">
+                                         <span ng-repeat="vehicle in assetsvehicles">
+                                             <a ng-if="vehicle.resource_id==assetsresource.id"
+                                                ui-sref="admin.viewAssetsVehicle({id:asset.id})">
+                                                 {{vehicle.name}} {{vehicle.plate}}
+
+                                             </a> 
+                                         </span>
+                                </td>-->
+                        <td>
+                            {{assetsresource.assets_category_name}}
+                        </td>
+                        <td>
+                            <a show-if-has-permit="view_organization"
+                               ui-sref="admin.viewOrganization({id:assetsresource.organization_id})">
+                                {{assetsresource.organization_name}}
+                            </a>
+                        </td>
+                        <!--Status-->
+                        <!--  <td class="text-center switch">
+                              <input ng-click="activate(assetsresource)" show-if-has-permit="update_assetsresource"
+                                     id="{{assetsresource.name}}"
+                                     class="yep-toggle yep-toggle-round-flat yep-success"
+                                     ng-checked="assetsresource.status" type="checkbox">
+                              <label for="{{assetsresource.name}}"></label>
+                          </td>-->
+                        <td class="text text-center">
+                        <span class="text text-primary" ng-show="!assetsresource.status">
+                            {{"asset.table.not_active" | translate}}</span>
+                            <span class="text text-success" ng-show="assetsresource.status == 1">
+                                                            {{"asset.table.active" | translate}}
+                        </span>
+                            <span class="text text-danger" ng-show="assetsresource.status == 2">
+                                                            {{"asset.table.deleted" | translate}}
+                        </span>
+
+                        </td>
+                        <td class="text-center">{{assetsresource.created_at}}</td>
+                        <td class="text-center">
+                            <div class=" action-buttons">
+                                <a class="blue" href="#" show-if-has-permit="view_assetsresource"
+                                   ui-sref="admin.viewAssetsResource({id:assetsresource.id})">
+                                    <i class="fa fa-eye bigger-130" title="{{'asset.table.view' | translate}}"></i>
+                                </a>
+                                <a class="gray" ui-sref="admin.editAssetsResource({id:assetsresource.id})"
+                                   show-if-has-permit="edit_assetsresource">
+                                    <i class="fa fa-pencil-square-o" title="{{'asset.table.edit' | translate}}"></i>
+                                </a>
+                                <a ng-click="delete(selection)" show-if-has-permit="delete_assetsresource"
+                                   style="cursor: pointer"><i
+                                        class="fa fa-trash red" title="{{'asset.table.delete' | translate}}"></i>
+                                    <span class="badge pull-right"></span>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center">
+                <uib-pagination ng-show="pagination.total>1" total-items="pagination.total"
+                                ng-model="pagination.current_page" max-size="maxSize" class="pagination"
+                                boundary-links="true" rotate="false" ng-change="pageChanged(perPage)"
+                                items-per-page="pagination.per_page"></uib-pagination>
+            </div>
+        </div>
+    </div>
+</div><!-- end panel -->
+

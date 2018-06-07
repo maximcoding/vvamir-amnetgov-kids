@@ -1,0 +1,115 @@
+<div class="panel panel-default">
+    <!--HEADING-->
+    <div class="panel-heading">
+        <ng-include src="'app/templates/form-header.tmpl.html'"></ng-include>
+    </div>
+    <!--HEADING-->
+
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <div class="col-md-8 col-md-offset-1"><br>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.name" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" ng-model="organization.name"
+                               value="{{organization.name}}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.type" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" ng-model="organization.type"
+                               value="{{organization.type}}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.city" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" ng-model="organization.city"
+                               value="{{organization.city}}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.street" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" ng-model="organization.street"
+                               value="{{organization.street}}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.phone" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" ng-model="organization.phone"
+                               value="{{organization.phone}}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.web" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="tel" value="{{organization.website}}" ng-model="organization.website"/>
+                    </div>
+                </div>
+                <!--SUB ORGANIZATIONS-->
+            <!--    <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.partners" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <div class="form-group">
+                            <select multiple class="select2 col-lg-9" ui-jq="select2"
+                                    data-ng-model="new.partners"
+                                    data-ng-options="partner as partner.name  group by partner.type for partner in partners"
+                                    required=""></select>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.description" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <textarea type="text" class="form-control" ng-model="organization.description" rows="5">{{organization.description}}</textarea>
+                    </div>
+                </div>
+                <hr ng-show="$state.includes('admin.createOrganization') || $state.includes('admin.editOrganization')">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                    </label>
+                    <div class="col-sm-5 col-sm-offset-2">
+                        <button type="button" class="btn btn-lg btn-success btn-block" ng-click="update(organization)"
+                                ng-if="organization.id"
+                                ng-class="{'working':isDisabled===true}">
+                            <i class="fa fa-save"></i>
+                            {{"app.shared.common.update" | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

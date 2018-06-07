@@ -1,0 +1,87 @@
+<div class="navbar-primary">
+    <div class="navbar-header">
+        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div><!-- end navbar-header -->
+    <!--ADD NEW-->
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-left" show-if-has-permit="add_organization">
+            <li style="text-align:left">
+                <a href="#" ui-sref="admin.createOrganization"
+                   class="btn btn-primary">
+                    <i class="fa fa-plus"></i> {{"app.shared.common.add_new" | translate}}
+                </a>
+            </li>
+        </ul>
+        <!--LABEL-->
+        <ul class="nav navbar-nav navbar-shadow">
+            <li>
+                <a class="navbar-brand" ui-sref="admin.organizations">
+                    <span class="text text-uppercase">{{$state.current.ncyBreadcrumb.label | translate}}</span>
+                </a>
+            </li>
+        </ul>
+        <!--TOOLS-->
+        <form class="navbar-form navbar-right">
+            <div class="bars pull-left">
+                <div class="display-flex ">
+                    <select ng-model="perPage" ng-change="pageChanged(perPage)"
+                            ng-options="opt as opt.label for opt in units" class=" form-control inline col-md-2"
+                            ng-show="perPageShow"></select>
+                </div>
+                <button class="btn btn-link has-ripple" ng-click="perPageShow=!perPageShow"><i
+                        class="fa fa-list-ol"></i></button>
+                <button class="btn btn-link has-ripple" ui-sref="admin.createOrganization"
+                        show-if-has-permit="add_organization"><i
+                        class="fa fa-plus "></i>
+                </button>
+                <div class="dropdown"
+                     show-if-has-any-permit="delete_user,export_csv,export_xls,export_pdf,import_user">
+                    <a href="" data-target="#" class="dropdown-toggle btn btn-link has-ripple"
+                       data-toggle="dropdown">
+                        <i class="fa fa-ellipsis-v fa-lg"></i>
+                    </a>
+                    <ul class="dropdown-menu yep-panel-menu group-item">
+                        <li show-if-has-permit="delete_organization" class="list-group-item">
+                            <a ng-click="delete(selection)" show-if-has-permit="delete_organization"><i
+                                    class="fa fa-trash red"></i> {{'app.shared.common.delete' | translate}}<span
+                                    class="badge pull-right"></span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="list-group-item">
+                            <a ng-click="export(selection,'csv')" download show-if-has-permit="export_csv"><i
+                                    class="fa fa-file-text-o"></i> {{'app.shared.common.exportToCSV' |
+                                translate}}<span class="badge pull-right"></span></a>
+                        </li>
+                        <li class="list-group-item">
+                            <a ng-click="export(selection,'xls')" download show-if-has-permit="export_xls"><i
+                                    class="fa fa-file-excel-o green"></i> {{"app.shared.common.exportToExcel" |
+                                translate}}<span class="badge pull-right"></span></a>
+                        </li>
+                        <li class="list-group-item">
+                            <a ng-click="export(selection,'pdf')" download show-if-has-permit="export_pdf"><i
+                                    class="fa fa-file-pdf-o red"></i> {{"app.shared.common.exportToPDF" |
+                                translate}}<span class="badge pull-right"></span></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </form>
+        <!--SEARCH-->
+        <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+                <!--INPUT-->
+                <input type="text" class="form-control search-header" size="35"
+                       placeholder="{{'app.shared.admin.enterkeyword' | translate}}" ng-model="searchItem"/>
+                <!--SUBMIT-->
+                <button type="submit" ng-click="search(searchItem,perPage)"
+                        class="btn btn-sm kid-search-button search-header-btn"><i
+                        class="fa fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+</div>

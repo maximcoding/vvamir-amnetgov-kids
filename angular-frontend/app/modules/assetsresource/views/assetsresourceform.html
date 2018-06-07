@@ -1,0 +1,136 @@
+<div class="panel panel-default">
+    <!--HEADING-->
+    <div class="panel-heading">
+        <ng-include src="'app/templates/form-header.tmpl.html'"></ng-include>
+    </div>
+    <!--HEADING-->
+    <div class="panel-body" translate-namespace="assetsresource.form">
+        <form class="form-horizontal">
+            <div class="col-md-8 col-md-offset-1"><br>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.organization" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-5 col-md-5 col-lg-5">
+                        <div class="inner-addon right-addon">
+                            <i class="glyphicon glyphicon-search"></i>
+                            <input type="text"
+                                   class="form-control scrollable-menu search-header"
+                                   placeholder="{{'app.shared.common.search_organization_name' | translate}}"
+                                   ng-change="searchOrganization(queryOrganization)"
+                                   ng-model="queryOrganization"
+                                   data-typeahead="org as org.name for org in organizations"
+                                   typeahead-wait-ms=10
+                                   typeahead-focus-first="true"
+                                   typeahead-is-open="true"
+                                   typeahead-on-select="onSelectOrganization($item, $model, $label)"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <!--Category-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.category" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-7 col-md-7 col-lg-7">
+                        <select ng-model="assetsresource.assets_category_id"
+                                ng-options="category.id as category.name group by category.type for category in assetscategories"
+                                class="form-control"
+                                name="assetscategory"
+                                id="assetscategory">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" ng-if="assetsresource.assets_category_id == 8">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.sim" | translate}}
+                    </label>
+                    <div class="col-sm-7 col-md-7 col-lg-7">
+                        <input ng-model="assetsresource.sim" type="text" class="form-control"
+                               data-placeholder="0">
+                        <p class="note">
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group" ng-if="assetsresource.assets_category_id == 11">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.ip_address" | translate}}
+                    </label>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <input ng-model="assetsresource.ip_address" type="text" class="form-control"
+                               data-mask="***.***.***.***" data-placeholder="0">
+                        <p class="note">
+                            format 255.255.255.255 for IP ADDRESS
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.imei" | translate}}
+                    </label>
+                    <div class="col-sm-7 col-md-7 col-lg-7">
+                        <input ng-model="assetsresource.imei" type="text" class="form-control"
+                               data-mask="*****************" data-placeholder="0">
+                        <p class="note">
+                            format 0123456789012345 for IMEI
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.serial" | translate}}
+                    </label>
+                    <div class="col-sm-7 col-md-7 col-lg-7">
+                        <input ng-model="assetsresource.serial" type="text" class="form-control" data-placeholder="0">
+                    </div>
+                </div>
+                <div class="form-group switch">
+                    <label class="col-sm-3 control-label" translate>
+                        {{"asset.table.activate" | translate}}
+                    </label>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="m-switch row">
+                            <input ng-model="assetsresource.status" ng-true-value="1" type="checkbox" id="id-name--1"
+                                   class="switch-input">
+                            <label for="id-name--1" class="switch-label">
+                            </label>
+                            <span class="text text-primary" ng-show="assetsresource.status == 0">
+                                                        {{"asset.table.no" | translate}}
+                            </span>
+                            <span class="text text-primary" ng-show="assetsresource.status == 1">
+                                                        {{"asset.table.yes" | translate}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group"
+                     ng-show="$state.includes('admin.createAssetsResource') || $state.includes('admin.editAssetsResource')">
+                    <label class="col-sm-3 col-md-3 col-lg-3 control-label">
+                    </label>
+                    <div class="col-sm-4 col-md-4 col-lg-4 col-sm-offset-2">
+                        <button class="btn btn-block btn-primary btn-lg" ng-click="create(assetsresource)"
+                                ng-if="!assetsresource.id"
+                                ng-class="{'working':isDisabled===true}"><i class="fa fa-save"></i>
+                            {{"app.shared.common.save" | translate }}
+                        </button>
+                        <button class="btn btn-block btn-primary btn-lg" ng-click="update(assetsresource)"
+                                ng-if="assetsresource.id"
+                                ng-class="{'working':isDisabled===true}"><i class="fa fa-save"></i>
+                            {{"app.shared.common.update" | translate
+                            }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+

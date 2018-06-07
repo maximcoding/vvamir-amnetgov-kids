@@ -1,0 +1,319 @@
+<div class="panel panel-default">
+    <!--HAV HEADING-->
+    <!--HAV HEADING-->
+    <div class="panel-heading">
+        <div class="navbar-primary">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div><!-- end navbar-header -->
+            <!--ADD NEW-->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-left" show-if-has-permit="add_assetsgroup">
+                    <li style="text-align:left">
+                        <a href="#" ui-sref="admin.createAssetsGroup"
+                           class="btn btn-primary">
+                            <i class="fa fa-plus"></i> {{"app.shared.common.add_new" | translate}}
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="navbar-brand" ui-sref="admin.assetsgroups">
+                            <span class="text text-uppercase">{{$state.current.ncyBreadcrumb.label | translate}}</span>
+                        </a>
+                    </li>
+                </ul>
+                <!--TOOLS-->
+                <form class="navbar-form navbar-right">
+                    <div class="bars pull-left">
+                        <div class="display-flex ">
+                            <select ng-model="perPage" ng-change="pageChanged(perPage)"
+                                    ng-options="opt as opt.label for opt in units" class=" form-control inline col-md-2"
+                                    ng-show="perPageShow"></select>
+                        </div>
+                        <button class="btn btn-link has-ripple" ng-click="perPageShow=!perPageShow"><i
+                                class="fa fa-list-ol"></i></button>
+                        <button class="btn btn-link has-ripple" ui-sref="admin.createAssetsGroup"
+                                show-if-has-permit="add_assetsgroup"><i
+                                class="fa fa-plus "></i>
+                        </button>
+                        <div class="dropdown"
+                             show-if-has-any-permit="delete_assetsgroup,export_csv,export_xls,export_pdf">
+                            <a href="" data-target="#" class="dropdown-toggle btn btn-link has-ripple"
+                               data-toggle="dropdown">
+                                <i class="fa fa-ellipsis-v fa-lg"></i>
+                            </a>
+                            <ul class="dropdown-menu yep-panel-menu group-item">
+                                <li class="list-group-item" show-if-has-permit="delete_assetsgroup">
+                                    <a ng-click="delete(selection)"><i
+                                            class="fa fa-trash red"></i> {{'app.shared.common.delete' | translate}}<span
+                                            class="badge pull-right"></span></a>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="list-group-item">
+                                    <a ng-click="export(selection,'csv')" download show-if-has-permit="export_csv"><i
+                                            class="fa fa-file-text-o"></i> {{'app.shared.common.exportToCSV' |
+                                        translate}}<span class="badge pull-right"></span></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a ng-click="export(selection,'xls')" download show-if-has-permit="export_xls"><i
+                                            class="fa fa-file-excel-o green"></i> {{"app.shared.common.exportToExcel" |
+                                        translate}}<span class="badge pull-right"></span></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a ng-click="export(selection,'pdf')" download show-if-has-permit="export_pdf"><i
+                                            class="fa fa-file-pdf-o red"></i> {{"app.shared.common.exportToPDF" |
+                                        translate}}<span class="badge pull-right"></span></a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+                <!--SEARCH-->
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <!--INPUT-->
+                        <input type="text" class="form-control search-header" size="35"
+                               placeholder="{{'app.shared.admin.enterkeyword' | translate}}" ng-model="searchItem"/>
+                        <!--SUBMIT-->
+                        <button type="submit" ng-click="search(searchItem,perPage)"
+                                class="btn btn-sm kid-search-button search-header-btn"><i
+                                class="fa fa-search"></i></button>
+
+                    </div>
+                </form>
+            </div><!-- end collapse -->
+        </div>
+    </div>
+    <!--HAV HEADING-->
+    <!--HAV HEADING-->
+    <div class="panel-body">
+        <div class="res-table">
+            <div class="res-table">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-default">
+                    <tr>
+                        <th width="2%" class="text-center text-uppercase"><i class="glyphicon glyphicon-pushpin"></i>
+                        </th>
+                        <!--Group-->
+                        <th width="5%" class="">
+                            <a class="text text-primary text-uppercase" style="cursor:n-resize"
+                               ng-click="sortType = 'group'; sortReverse = !sortReverse">
+                                {{"asset.table.group" | translate}}
+                                <span ng-show="sortType == 'group' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'group' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <!--Organization-->
+                        <th width="15%" show-if-has-permit="view_organization">
+                            <a class="text text-primary text-uppercase" style="cursor:n-resize"
+                               ng-click="sortType = 'organization'; sortReverse = !sortReverse">
+                                {{"asset.table.organization" | translate}}
+                                <span ng-show="sortType == 'organization' && !sortReverse"
+                                      class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'organization' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <!--Persons-->
+                        <th width="10%" class="text-center text-uppercase">
+                            <a class="text text-primary text-uppercase" style="cursor:n-resize"
+                               ng-click="sortType = 'persons'; sortReverse = !sortReverse">
+                                {{"asset.table.persons" | translate}}
+                                <span ng-show="sortType == 'persons' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'persons' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <!--Watchers-->
+                        <th width="10%" class="text-center text-uppercase">
+                            <a class="text text-primary text-uppercase" style="cursor:n-resize"
+                               ng-click="sortType = 'watchers'; sortReverse = !sortReverse">
+                                {{"asset.table.watchers" | translate}}
+                                <span ng-show="sortType == 'watchers' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'watchers' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th width="4%" class="text-center text-uppercase">
+                            <a class="text text-primary text-uppercase" style="cursor:n-resize"
+                               ng-click="sortType = 'status'; sortReverse = !sortReverse">
+                                {{"asset.table.status" | translate}}
+                                <span ng-show="sortType == 'status' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'status' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <!--Actions-->
+                        <th width="6%" class="text-center text-uppercase">
+                            <a class="text text-primary text-uppercase" style="cursor:n-resize"
+                               ng-click="sortType = 'created_at'; sortReverse = !sortReverse">
+                                {{"asset.table.created_at" | translate}}
+                                <span ng-show="sortType == 'created_at' && !sortReverse"
+                                      class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'created_at' && sortReverse" class="fa fa-caret-up"></span>
+                            </a>
+                        </th>
+                        <th width="4%" class="text-center">
+                            <a> {{"asset.table.actions" | translate}}</a>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="group in assetsgroups | orderBy:sortType:sortReverse | filter:searchItem">
+                        <!--CHECKBOX-->
+                        <td class="text-center">
+                            <div class="text-center checkbox checkbox-primary">
+                                <input id="{{group.assets_group_id}}" type="checkbox" class="conchkNumber"
+                                       value="{{group.assets_group_id}}"
+                                       ng-checked="selection.indexOf(group.assets_group_id) > -1"
+                                       ng-click="toggleSelection(group.assets_group_id)">
+                                <label class="text-center" for="{{group.assets_group_id}}">
+                                </label>
+                            </div>
+                        </td>
+                        <!--GROUP NAME-->
+                        <td class="">{{group.name}}</td>
+                        <!--Organization-->
+                        <td show-if-has-permit="view_organization">
+                            <a ui-sref="admin.viewOrganization({id:group.organization_id})" class="text text-success">
+                                {{group.organization_name}}
+                            </a>
+                        </td>
+                        <!--Persons-->
+                        <td class="text-center">
+                            <div class="dropdown col-lg-12" ng-show="group.persons.length>0">
+                                <button data-toggle="dropdown" class="btn btn-default btn-sm has-ripple btn-block"
+                                        value="glyphicon-arrow-down"
+                                        title="glyphicon-arrow-down">
+                                    <i class="glyphicon glyphicon-arrow-down"></i>
+                                    <span class="ripple ripple-animate"></span>
+                                </button>
+                                <ul class="dropdown-menu multi-level group-i" role="menu">
+                                    <div class="list-group" ng-repeat="asset in group.persons">
+                                        <div class="form-group">
+                                            <label class="text black"> {{"asset.table.firstname" |translate}}:</label>
+                                            <span class="text text-primary text-small">{{asset.asset_person_firstname}}</span>
+                                            <label class="text black">{{"asset.table.lastname" | translate}}:</label>
+                                            <span class="text text-primary text-small">{{asset.asset_person_lastname}}</span>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+                            <span class="text text-warning" ng-show="group.persons.length==0">
+                            {{"app.shared.common.not_selected" | translate}}
+                        </span>
+                        </td>
+                        <!--Watchers-->
+                        <td class="text-center">
+                            <div class="dropdown col-lg-12" ng-show="group.watchers.length>0">
+                                <button data-toggle="dropdown" class="btn btn-default btn-sm has-ripple btn-block"
+                                        value="glyphicon-arrow-down"
+                                        title="glyphicon-arrow-down">
+                                    <i class="glyphicon glyphicon-arrow-down"></i>
+                                    <span class="ripple ripple-animate"></span>
+                                </button>
+                                <ul class="dropdown-menu multi-level group-i" role="menu"
+                                    class="col-lg-4 col-sm-4 col-md-4">
+                                    <div class="list-group" ng-repeat="watcher in group.watchers">
+                                        <div class="form-group">
+                                            <label class="text black"> {{"asset.table.firstname" |translate}}:</label>
+                                            <span class="text text-primary text-small">{{watcher.watcher_firstname}}</span>
+                                            <label class="text black">{{"asset.table.lastname" | translate}}:</label>
+                                            <span class="text text-primary text-small">{{watcher.watcher_lastname}}</span>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+                            <span class="text text-warning" ng-show="group.watchers.length==0">
+                            {{"app.shared.common.not_selected" | translate}}
+                        </span>
+                        </td>
+                        <!--Status-->
+                        <td class="text-center switch">
+                            <input ng-click="activate(organization)" show-if-has-permit="update_organization"
+                                   id="{{organization.name}}" class="yep-toggle yep-toggle-round-flat yep-success"
+                                   ng-checked="organization.status" type="checkbox">
+                            <label for="{{organization.name}}"></label>
+                        </td>
+                        <!--CREATED AT-->
+                        <td class="text-center">{{group.created_at}}</td>
+                        <!--ACTIONS-->
+                        <td class="text-center">
+                            <div class=" action-buttons">
+                                <a class="blue" ui-sref="admin.viewAssetsGroup({id:group.id})"
+                                   show-if-has-permit="view_assetsgroup">
+                                    <i class="fa fa-eye bigger-130"></i></a>
+                                <a class="fa fa-pencil-square-o" ui-sref="admin.editAssetsGroup({id:group.id})"
+                                   show-if-has-permit="edit_assetsgroup"></a> 
+                                <a ng-click="delete(selection)" show-if-has-permit="delete_assetsgroup"><i
+                                        class="fa fa-trash red"></i><span
+                                        class="badge pull-right"></span></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <!--
+                                    <tr ng-repeat="(group, value) in assetsgroups | groupBy: 'name' ">
+                                        <td class="text-center">
+                                            <div class="text-center checkbox checkbox-primary">
+                                                <input id="{{group.id}}" type="checkbox" class="conchkNumber"
+                                                       value="{{group.name}}" ng-checked="selection.indexOf(group.id) > -1"
+                                                       ng-click="toggleSelection(group.id)">
+                                                <label class="text-center" for="{{group.id}}">
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>{{}}</td>
+                                        <td>{{ group }}</td>
+                                        <td>
+                                            <div class="dropdown col-lg-12">
+                                                <button data-toggle="dropdown" class="btn btn-default btn-sm has-ripple btn-block"
+                                                        value="glyphicon-arrow-down"
+                                                        title="glyphicon-arrow-down">
+                                                    <i class="glyphicon glyphicon-arrow-down"></i>
+                                                    <span class="ripple ripple-animate"></span>
+                                                </button>
+                                                <ul class="dropdown-menu multi-level" role="menu" class="col-lg-4 col-sm-4 col-md-4">
+                                                    <li class="row">
+                                                           <span ng-repeat="object in value">
+                                                <span ng-repeat="person in assetspersons" ng-if="person.id == object.assets_person_id"
+                                                      class="text text-primary label-warning">
+                                                    <div class="text text-primary"
+                                                         ng-if="person.id == object.assets_person_id">{{person.firstname}}
+                                                        {{person.lastname}}
+                                                    </div>
+                                                    </span>
+                                            </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>&ndash;&gt;
+                                        <td></td>
+                                        <td class="text-center">
+                                            <div class=" action-buttons">
+                                                <a class="blue" href="#">
+                                                    <i class=" fa fa-search-plus bigger-130"></i>
+                                                </a>
+                                                <a class="fa fa-pencil-square-o"
+                                                   ui-sref="admin.editAssetsVehicle({id:assetsgroup.id})"></a> 
+                                                <a ng-click="delete(selection)" show-if-has-permit="delete_assetsgroup"><i
+                                                        class="fa fa-trash red"></i>
+                                                    <span class="badge pull-right"></span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    -->
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    <uib-pagination total-items="pagination.total" ng-model="pagination.current_page" max-size="maxSize"
+                                    class="pagination" boundary-links="true" rotate="false"
+                                    ng-change="pageChanged(perPage)"
+                                    items-per-page="pagination.per_page"></uib-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

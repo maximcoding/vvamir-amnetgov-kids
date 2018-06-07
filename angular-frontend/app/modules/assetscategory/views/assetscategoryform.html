@@ -1,0 +1,60 @@
+<div class="panel panel-default">
+    <!--HEADING-->
+    <div class="panel-heading">
+        <ng-include src="'app/templates/form-header.tmpl.html'"></ng-include>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <div class="col-lg-8 col-sm-8 col-md-8 col-md-offset-1"><br>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.name" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" ng-model="assetscategory.name"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.description" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" ng-model="assetscategory.description"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"asset.table.type" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <select ng-model="assetscategory.type"
+                                ng-options="category.category_type for category in assets_categories_types"
+                                class="form-control"
+                                name="category"
+                                id="category">
+                        </select>
+                    </div>
+                </div>
+                <hr ng-show="$state.includes('admin.createAssetsCategory') || $state.includes('admin.editAssetsCategory')">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                    </label>
+                    <div class="col-sm-5 col-sm-offset-2">
+                        <button class="btn btn-block btn-success btn-lg" ng-click="create(assetscategory)"
+                                ng-if="!assetscategory.id"
+                                ng-class="{'working':isDisabled===true}"><i class="fa fa-save"></i>
+                            {{"app.shared.common.save" | translate }}
+                        </button>
+                        <button class="btn btn-block btn-info btn-lg" ng-click="update(assetscategory)"
+                                ng-if="assetscategory.id"
+                                ng-class="{'working':isDisabled===true}"><i class="fa fa-save"></i>
+                            {{"app.shared.common.update" | translate
+                            }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

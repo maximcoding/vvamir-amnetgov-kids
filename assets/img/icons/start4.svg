@@ -1,0 +1,27 @@
+<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <defs>
+  <linearGradient spreadMethod="pad" y2="0" x2="1" y1="0" x1="0" id="svg_2">
+   <stop offset="1" stop-color="#fff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <linearGradient spreadMethod="pad" y2="0" x2="1" y1="0" x1="0" id="svg_16">
+   <stop offset="0" stop-opacity="0.992188" stop-color="#97fc23"/>
+   <stop offset="1" stop-opacity="0.980469" stop-color="#366d00"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="url(#svg_2)" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path stroke="#3d1000" transform="rotate(-6.266613960266113 301.9419555664059,185.87008666992207) " id="svg_8" d="m81.904399,62.236494l0,0c0,17.070232 49.257091,30.9084 110.018793,30.9084c60.761673,0 110.018749,-13.838168 110.018749,-30.9084l0,0c0,-17.070243 49.257105,-30.9084 110.018808,-30.9084c60.761703,0 110.018749,13.838168 110.018749,30.9084l0,247.267203c0,-17.070232 -49.257061,-30.908421 -110.018749,-30.908421c-60.761703,0 -110.018808,13.838178 -110.018808,30.908421c0,17.070222 -49.257076,30.90839 -110.018749,30.90839c-60.761703,0 -110.018793,-13.838168 -110.018793,-30.90839l0,-247.267203z" stroke-width="17.5" fill="url(#svg_16)"/>
+  <line transform="rotate(26.7669734954834 155.50000000000006,388.50000000000006) " stroke="#3d1000" stroke-linecap="null" stroke-linejoin="null" id="svg_10" y2="355.500002" x2="139.5" y1="421.5" x1="171.5" stroke-width="37.5" fill="url(#svg_16)"/>
+  <line stroke="#3d1000" transform="rotate(15.020565032958984 446.51458740234347,333.80889892578125) " stroke-linecap="null" stroke-linejoin="null" id="svg_11" y2="400.336002" x2="461.430432" y1="267.281835" x1="431.598773" stroke-width="31.5" fill="url(#svg_16)"/>
+  <text font-weight="bold" stroke="#471100" transform="rotate(0.09423942863941193 300.76541137695784,187.15275573730926) matrix(0.8621434523645873,0,0,1.0023131851423899,3.964904994409771,-6.412039498627704) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="147" id="svg_14" y="243.929941" x="104.756769" stroke-width="5" fill="#ff0202">START</text>
+ </g>
+</svg>

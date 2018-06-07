@@ -1,0 +1,50 @@
+{
+  "name": "angular-sc-select",
+  "version": "0.3.0",
+  "homepage": "https://github.com/singlecomm/angular-sc-select",
+  "authors": [
+    "Matt Lewis"
+  ],
+  "contributors": [
+    "Ayman Jitan",
+    "Jay Thomas"
+  ],
+  "description": "An opinionated wrapper around the ui-select module",
+  "main": "dist/sc-select.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "angular",
+    "select",
+    "dropdown",
+    "combobox",
+    "async",
+    "ui-select"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0",
+    "bootstrap": "^3.3.5",
+    "font-awesome": "^4.4.0",
+    "select2-bootstrap-css": "^1.4.6",
+    "angular-ui-select": "^0.16.1"
+  },
+  "_release": "0.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.3.0",
+    "commit": "76a120d318e7bc44822400a3e8a0c9114931033f"
+  },
+  "_source": "https://github.com/singlecomm/angular-sc-select.git",
+  "_target": "^0.3.0",
+  "_originalSource": "angular-sc-select",
+  "_direct": true
+}
