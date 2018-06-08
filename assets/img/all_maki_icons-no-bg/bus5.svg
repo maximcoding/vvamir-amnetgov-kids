@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_4"/>
+  <path stroke="#ed0000" opacity="0.75" id="svg_15" d="m317.178799,7.5c-79.349009,0 -143.678795,61.076004 -143.678795,136.411563c0,75.353747 143.678795,329.588524 143.678795,329.588524s143.678795,-254.234777 143.678795,-329.588524c0,-75.335559 -64.310629,-136.411563 -143.678795,-136.411563zm0,201.598102c-37.912045,0 -68.659307,-29.173886 -68.659307,-65.186539s30.747262,-65.186539 68.659307,-65.186539s68.659307,29.192074 68.659307,65.186539s-30.747262,65.186539 -68.659307,65.186539z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="7" fill="#f9432f"/>
+  <path stroke="#e82727" id="svg_18" d="m251.342119,98.409999l137.997489,0l0,0c9.150111,0 17.925408,1.755965 24.395485,4.881609c6.470077,3.125644 10.10494,7.364926 10.10494,11.785252l0,83.332312c0,0.00045 -0.000806,0.000829 -0.001737,0.000829l-206.996594,-0.000829l0,0c-0.000945,0 -0.001737,-0.000369 -0.001737,-0.000839l0.001737,-83.331469l0,0c0,-9.204854 15.446343,-16.666861 34.500418,-16.666861l0,-0.000003z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="#faff00"/>
+  <circle stroke="#ed3838" id="svg_19" r="15.732422" cy="198.500003" cx="250.5" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="#faff00"/>
+  <circle stroke="#e81212" id="svg_20" r="16.678009" cy="199.500001" cx="388.000002" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="#faff00"/>
+  <rect stroke="#ed3434" id="svg_21" height="42.999997" width="187.999976" y="121.000003" x="226.000013" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="#ffffff"/>
+  <line stroke="#ea2c2c" id="svg_22" y2="162.101562" x2="261.316406" y1="123.316406" x1="260.316406" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="none"/>
+  <line stroke="#636262" id="svg_23" y2="161.734376" x2="371" y1="121" x1="370" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="none"/>
+  <line stroke="#e55252" id="svg_24" y2="162" x2="317" y1="122.429689" x1="316" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="none"/>
+  <line stroke="#e01111" transform="rotate(-1.0609116554260254 319.8927917480475,134.01124572753915) " id="svg_25" y2="133.011245" x2="228.000448" y1="135.011245" x1="411.785116" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="none"/>
+  <circle stroke="#ed1c1c" id="svg_28" r="6.830956" cy="197.874999" cx="250.437499" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="#feffea"/>
+  <circle id="svg_29" r="7.211102" cy="199.195313" cx="388.046875" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" stroke="#dd2727" fill="#fefff4"/>
+  <path stroke="#f22626" id="svg_32" d="m282.172494,203.370638l37.500002,44.874998l37.500002,-44.874998l-75.000004,0z" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="7" fill="#ffffff"/>
+  <line id="svg_33" stroke="#ea2c2c" y2="162.396505" x2="316.996086" y1="123.611348" x1="315.996086" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="none"/>
+  <line id="svg_34" stroke="#ea2c2c" y2="161.447285" x2="371.417961" y1="122.662129" x1="370.417961" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="none"/>
+  <line id="svg_35" stroke="#ea2c2c" y2="161.763693" x2="344.52343" y1="122.978536" x1="343.52343" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="none"/>
+  <line id="svg_36" stroke="#ea2c2c" y2="161.763693" x2="289.468742" y1="122.978536" x1="288.468742" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="5" fill="none"/>
+ </g>
+</svg>

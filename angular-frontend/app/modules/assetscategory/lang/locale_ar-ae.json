@@ -1,0 +1,32 @@
+{
+  "asset": {
+    "table": {
+      "back":"Back to Categories",
+      "new":"Add new Category",
+      "name": "Name",
+      "address": "Address",
+      "phone": "Phone",
+      "type": "Type",
+      "serial": "SERIAL NUMBER",
+      "imei": "IMEI",
+      "sim": "SIM",
+      "ip_address": "IP ADDRESS",
+      "assign_to": "Assign to",
+      "no_one":"No one",
+      "organization": "Organization",
+      "category": "Category",
+      "partners": "Partners",
+      "description": "Description",
+      "web": "Web",
+      "status": "Status",
+      "created_at": "Created at",
+      "actions": "Actions"
+    },
+    "dashboard": {
+      "new": "Add New"
+    },
+    "messages":{
+      "updated_successfully":"Successfully Updated"
+    }
+  }
+}

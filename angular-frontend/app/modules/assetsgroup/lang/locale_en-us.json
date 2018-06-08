@@ -1,0 +1,50 @@
+{
+  "asset": {
+    "table": {
+      "name_group":"Name Group",
+      "group_name":"Group Name",
+      "select_assets":"Select Assets",
+      "select_watchers":"Select Watchers",
+      "finish":"Finish",
+      "next":"Next",
+      "please_choose":"Please Choose",
+      "track_persons":"Track Persons",
+      "who_is_watchers":"Who is the Watchers?",
+      "finish_it":"Finish it",
+      "back":"Back to Groups",
+      "new":"Add new Group",
+      "name": "Name",
+      "firstname": "First Name",
+      "lastname": "Last Name",
+      "address": "Address",
+      "phone": "Phone",
+      "type": "Type",
+      "serial": "SERIAL NUMBER",
+      "imei": "IMEI",
+      "sim": "SIM",
+      "ip_address": "IP ADDRESS",
+      "assign_to": "Assign to",
+      "no_one": "No one",
+      "organization": "Organization",
+      "group": "Group",
+      "assets": "Assets",
+      "persons": "Persons",
+      "vehicles": "Vehicles",
+      "watchers": "Watchers",
+      "category": "Category",
+      "partners": "Partners",
+      "description": "Description",
+      "web": "Web",
+      "status": "Status",
+      "created_at": "Created at",
+      "actions": "Actions"
+    },
+    "dashboard": {
+      "new": "Add New"
+    },
+    "messages": {
+      "created_successfully": "Created Successfully",
+      "updated_successfully": "Successfully Updated"
+    }
+  }
+}

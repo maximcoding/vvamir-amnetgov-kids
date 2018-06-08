@@ -1,0 +1,54 @@
+<div style="margin: 10% auto;position: relative; width: 400px;height:450px">
+    <!-- error alert panel -->
+    <div class="alert alert-danger" ng-if="signinError.data.error">
+        <strong>There was an error: </strong> {{signinError.data.error}}
+        <br>Please try again
+    </div>
+    <!-- this is demo - you can remove it -->
+    <div class="alert alert-warning">
+        <label>User : admin@gmail.com</label><br>
+        <label>Password : 123123</label>
+    </div>
+    <!-- <div ng-show="loader" class="text-center">
+         <img src="../assets/img/preloader/material.gif" alt="preloader">
+     </div>-->
+    <div class="box">
+        <div class="text-center">
+            <h2 class="uppercase">AmnetIot</h2>
+        </div>
+        <!--  ng-submit should be signin() -->
+        <form ng-submit="signin()" role="form" autocomplete="off" class="form-horizontal">
+            <div class="spacing hidden-md"></div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input ng-model="user.email" type="text" id="email" placeholder="Email" required>
+            </div>
+            <div class="spacing"></div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <input ng-model="user.password" type="password" id="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary contract-overlay">Login</button>
+            <p class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <p class="col-lg-5 col-md-5 col-sm-6">
+                <a ui-sref="forget-password" class="grey">Forget Password?</a>
+            </p>
+            <p class="col-lg-6 col-md-6 col-sm-6">
+                Not a member? <span><a>Sign Up</a></span>
+            </p>
+            </p>
+        </form>
+    </div>
+</div>
+<div class="text-center">Copyright 2016 <a class="uppercase" href="http://vvamir.com/">Vvamir</a> Corporation. All
+    right reserved.
+</div>
+
+
+
+
+
+
+
+
+

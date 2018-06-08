@@ -1,0 +1,11 @@
+{
+  "permission":{
+    "form":{
+      "new":"Add New Permission",
+      "permissionName":"Permission Name",
+      "displayName":"display_name",
+      "description":"Description",
+      "permissionAddSuccess":"Permission added successfully"
+    }
+  }
+}

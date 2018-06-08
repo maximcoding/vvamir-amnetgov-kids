@@ -1,0 +1,214 @@
+<div class="panel panel-default">
+    <!--HAV HEADING-->
+    <div class="panel-heading">
+        <ng-include src="'app/templates/form-header.tmpl.html'"></ng-include>
+    </div>
+    <!--HAV HEADING-->
+    <div class="panel-body" translate-namespace="user.form">
+        <form class="form-horizontal">
+            <div class="col-md-6"><br>
+                <div class="form-group switch">
+                    <label class="col-sm-3 control-label" translate>
+                        {{"user.table.activate" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <div class="m-switch">
+                            <input ng-model="user.status" ng-true-value="1" type="checkbox" id="id-name--1"
+                                   class="switch-input">
+                            <label for="id-name--1" class="switch-label">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!--ROLE-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.role" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <select ng-model="user.role_id" name="role"
+                                ng-options='role.id as role.name for role in roles' class="form-control"></select>
+                    </div>
+                </div>
+                <!--Organization-->
+                <div class="form-group" ng-if="user.role_id != 1">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.organization" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-6">
+                        <!--    <select ng-model="user.organization_id" name="organization" id="organization"
+                                    class="form-control"
+                                    ng-options='organization.id as organization.name for organization in organizations'>
+                                <option ng-selected="{{organization.id == organization.name}}"
+                                        ng-repeat="organization in organizations" value="{{organization.id}}">
+                                    {{organization.name}}
+                                </option>
+                            </select>-->
+                        <!--SUBMIT-->
+                        <div class="inner-addon right-addon">
+                            <i class="glyphicon glyphicon-search"></i>
+                            <input type="text"
+                                   class="form-control scrollable-menu search-header"
+                                   placeholder="{{'app.shared.common.search_organization_name' | translate}}"
+                                   ng-change="searchOrganization(queryOrganization)"
+                                   ng-model="queryOrganization"
+                                   data-typeahead="org as org.name for org in organizations"
+                                   typeahead-wait-ms=10
+                                   typeahead-focus-first="true"
+                                   typeahead-is-open="true"
+                                   typeahead-on-select="onSelectOrganization($item, $model, $label)"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <!--AVATAR-->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" translate>
+                        {{"user.table.avatar" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <div ng-if="user.avatar_url!==undefined" ng-model="user.avatar_url"
+                             dropzone="dropzoneConfig" mode="single" class="dropzone dz-clickable dz-single"></div>
+                        <!--<div ng-if="deleteMessage" class="red">File removed successfully!</div>-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.firstname" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input ng-model="user.firstname" type="text" placeholder="" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.lastname" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input ng-model="user.lastname" type="text" placeholder="" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.gender" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <div class="radio radio-info radio-inline">
+                            <input ng-model="user.gender" type="radio" id="Male" value="0" name="gender">
+                            <label for="Male" translate>
+                                {{"user.table.male" | translate}}
+                            </label>
+                        </div>
+                        <div class="radio radio-info radio-inline">
+                            <input ng-model="user.gender" type="radio" id="Female" value="1" name="gender">
+                            <label for="Female" translate>
+                                {{"user.table.female" | translate}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.country" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <country-timezone-picker-countries country-model="user.country"
+                                                           class="form-control input-lg"></country-timezone-picker-countries>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.timezone" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <country-timezone-picker-timezone country-model="user.country"
+                                                          timezone-model="user.timezone"
+                                                          class="form-control input-lg"></country-timezone-picker-timezone>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.city" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <input ng-model="user.city" type="text" placeholder="" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.street" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <input ng-model="user.street" type="text" placeholder="" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.phone" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input ng-model="user.phone" type="text" placeholder="" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.email" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input ng-model="user.email" type="email" placeholder="" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.password" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input ng-model="user.password" type="password" placeholder="" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"user.table.confirm_password" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input ng-model="user.confirm_password" type="password" placeholder="" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"app.shared.common.biography" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" ng-model="user.biography"></textarea>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                    </label>
+                    <div class="col-sm-9">
+                        <button class="btn btn-success btn-block" ng-click="create(user)" ng-if="!user.id" type="button"
+                                ng-class="{'working':isDisabled===true}"><i class="fa fa-save"></i>
+                            {{"app.shared.common.save" | translate }}
+                        </button>
+                        <button class="btn btn-info btn-block" ng-click="update(user)" ng-if="user.id" type="button"
+                                ng-class="{'working':isDisabled===true}"> {{"app.shared.common.update" | translate
+                            }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

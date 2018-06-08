@@ -1,0 +1,34 @@
+{
+  "asset": {
+    "table": {
+      "position":"Position",
+      "organization":"Organization",
+      "enter_point_name":"Enter point name",
+      "show_hide_table": "Show Hide Points of Interests Table",
+      "view": "View Point",
+      "edit": "Edit Point",
+      "delete": "Delete Point",
+      "new": "Add new Points",
+      "map": "Map",
+      "lng": "Longtitude",
+      "lat": "Latitude",
+      "back": "Back",
+      "name": "Name",
+      "address": "Address",
+      "phone": "Phone",
+      "type": "Type",
+      "partners": "Partners",
+      "description": "Description",
+      "web": "Web",
+      "status": "Status",
+      "created_at": "Created at",
+      "actions": "Actions"
+    },
+    "dashboard": {
+      "new": "Add New"
+    },
+    "messages": {
+      "updated_successfully": "Successfully Updated"
+    }
+  }
+}

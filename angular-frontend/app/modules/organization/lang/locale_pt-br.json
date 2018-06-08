@@ -1,0 +1,32 @@
+{
+  "organization": {
+    "table": {
+      "search_place":"Search Place",
+      "active":"Active",
+      "not_active":"Not Active",
+      "deleted":"Deleted",
+      "delete":"Delete Organization",
+      "edit":"Edit Organization",
+      "view":"View Organization",
+      "city":"City",
+      "back":"Back",
+      "name": "Name",
+      "street": "Street",
+      "phone": "Phone",
+      "type": "Type",
+      "partners": "Partners",
+      "description": "Description",
+      "web": "Web",
+      "status": "Status",
+      "created_at": "Created at",
+      "actions": "Actions"
+    },
+    "dashboard": {
+      "new": "Add New Organization"
+    },
+    "messages":{
+      "created_successfully":"Successfully Created",
+      "updated_successfully":"Successfully Updated"
+    }
+  }
+}

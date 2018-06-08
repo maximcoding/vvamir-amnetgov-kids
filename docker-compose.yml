@@ -1,0 +1,19 @@
+# docker-compose.yml file version
+version: '2'
+
+services:
+  postgresdb:
+    image: postgres:alpine
+    container_name: kids-postgres
+    environment:
+      - POSTGRES_DB=amnetgov
+      - POSTGRES_USER=amnetgov
+      - POSTGRES_PASSWORD=amnetgov
+    ports:
+      - "5432:5432"
+    networks:
+      - app-tier
+
+networks:
+  app-tier:
+    driver: bridge

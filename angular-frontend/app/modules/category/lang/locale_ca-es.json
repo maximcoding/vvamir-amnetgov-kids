@@ -1,0 +1,11 @@
+{
+  "category":{
+    "form":{
+      "categoryName":"Category Name",
+      "description":"Description",
+      "type":"Type",
+      "categoryAddSuccess":"Category added successfully",
+      "categoryUpdatedSuccess":"Category updated successfully"
+    }
+  }
+}

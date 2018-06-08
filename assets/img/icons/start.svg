@@ -1,0 +1,18 @@
+<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <line stroke="#7c2710" stroke-linecap="null" stroke-linejoin="null" id="svg_2" y2="385.999991" x2="390.25" y1="213" x1="422.250001" stroke-width="47" fill="#99ba60"/>
+  <line stroke="#7c2710" transform="rotate(22.80901527404785 172.74134826660153,324.23712158203125) " stroke-linecap="null" stroke-linejoin="null" id="svg_13" y2="267.832311" x2="140.473521" y1="380.641962" x1="205.009175" stroke-width="51" fill="#99ba60"/>
+  <path stroke="#7c2710" id="svg_11" d="m69.107502,44.23l0,0c0,16.899908 47.681683,30.600001 106.500021,30.600001c58.81831,0 106.499978,-13.700093 106.499978,-30.600001l0,0c0,-16.899919 47.681697,-30.600001 106.500035,-30.600001c58.818338,0 106.499978,13.700093 106.499978,30.600001l0,244.800012c0,-16.899908 -47.681654,-30.600022 -106.499978,-30.600022c-58.818338,0 -106.500035,13.700103 -106.500035,30.600022c0,16.899898 -47.681668,30.599991 -106.499978,30.599991c-58.818338,0 -106.500021,-13.700093 -106.500021,-30.599991l0,-244.800012z" stroke-width="12" fill="#99ba60"/>
+  <text stroke="null" transform="matrix(26.66135987927146,0,0,3.1964159756614094,-11877.490642881849,-347.7331320005707) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_16" y="158" x="449.5" stroke-width="0" fill="#000000"/>
+  <text font-weight="bold" font-style="italic" stroke="#3f0e01" transform="matrix(1.15748704814044,0,0,1.3957998144156125,-3.700253549123964,-96.26113612392102) " xml:space="preserve" text-anchor="start" font-family="Arvo, sans-serif" font-size="101" id="svg_19" y="223.531871" x="77.708383" stroke-width="4" fill="#ffffff">START</text>
+ </g>
+</svg>

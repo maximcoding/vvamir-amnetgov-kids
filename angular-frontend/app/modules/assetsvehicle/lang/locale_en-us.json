@@ -1,0 +1,44 @@
+{
+  "asset": {
+    "table": {
+      "sn":"SN",
+      "view":"View Vehicle",
+      "edit":"Edit Vehicle",
+      "delete":"Delete Vehicle",
+      "model":"Model",
+      "back": "Back to Vehicles",
+      "add_new":"Add New Vehicle",
+      "name": "Name",
+      "address": "Address",
+      "phone": "Phone",
+      "type": "Type",
+      "serial": "SERIAL NUMBER",
+      "imei": "IMEI",
+      "sim": "SIM",
+      "ip_address": "IP ADDRESS",
+      "assign_to": "Assign to",
+      "no_one": "No one",
+      "organization": "Organization",
+      "category": "Category",
+      "partners": "Partners",
+      "description": "Description",
+      "web": "Web",
+      "parking_lot": "Parking lot",
+      "resources": "Resources",
+      "plate": "Plate",
+      "fuel": "Fuel",
+      "mileage": "Mileage",
+      "passenger_cap": "Max Seats",
+      "status": "Status",
+      "created_at": "Created at",
+      "updated_at": "Created at",
+      "actions": "Actions"
+    },
+    "dashboard": {
+      "new": "Add New"
+    },
+    "messages": {
+      "updated_successfully": "Successfully Updated"
+    }
+  }
+}

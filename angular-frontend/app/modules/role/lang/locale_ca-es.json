@@ -1,0 +1,17 @@
+{
+  "role":{
+    "form":{
+      "actions":"Actions",
+      "new":"Add new Role",
+      "roleName":"Name",
+      "displayName":"Display Name",
+      "description":"description",
+      "permissions":"permissions",
+      "roleAddSuccess":"Role added successfully",
+      "roleUpdateSuccess":"Role updated successfully"
+    },
+    "list":{
+      "createdTime":"Created time"
+    }
+  }
+}

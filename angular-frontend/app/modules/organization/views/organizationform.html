@@ -1,0 +1,122 @@
+<div class="panel panel-default">
+    <!--HEADING-->
+    <div class="panel-heading">
+        <ng-include src="'app/templates/form-header.tmpl.html'"></ng-include>
+    </div>
+    <!--HEADING-->
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <div class="col-md-8 col-md-offset-1"><br>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                    </label>
+                    <div class="col-sm-8 col-md-8 col-lg-8">
+                        <div class="inner-addon right-addon">
+                            <i class="glyphicon glyphicon-search"></i>
+                            <input places-auto-complete size=80 component-restrictions="{country:'co'}"
+                                   types="['establishment']"
+                                   on-place-changed="placeChanged()" type="search"
+                                   placeholder="{{'app.shared.common.search_organization_name' | translate}}"
+                                   value="{{place.name}}"/>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.name" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input on-place-changed="placeChanged()" type="text" class="form-control"
+                               ng-model="organization.name"
+                               value="{{place.name}}" data-placeholder="Search" required/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.type" | translate}}
+                        <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" value="{{place.types[0]}}" required
+                               ng-model="organization.type"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.city" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" value="{{place.address_components[2].long_name}}"
+                               class="form-control" required ng-model="organization.city"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.street" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                               value="{{place.address_components[1].long_name}} {{place.address_components[0].long_name}}"
+                               class="form-control" ng-model="organization.street"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.phone" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="tel" value="{{place.international_phone_number}}" required
+                               ng-model="organization.phone"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.web" | translate}}
+                    </label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="tel" value="{{place.website}}" required
+                               ng-model="organization.website"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        {{"organization.table.description" | translate}}
+                    </label>
+                    <div class="col-sm-9 col-lg-9 col-md-9">
+                        <textarea class="form-control" rows="5" ng-model="organization.description">{{place.reviews[0].text}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group"
+                     ng-show="$state.includes('admin.createOrganization') || $state.includes('admin.editOrganization')">
+                    <label class="col-sm-3 control-label">
+                    </label>
+                    <div class="col-sm-5 col-sm-offset-2">
+                        <button class="btn btn-lg btn-success btn-block" ng-click="create()" type="button"
+                                ng-if="!organization.id" ng-class="{'working':isDisabled===true}">
+                            <i class="fa fa-save"></i>
+                            {{"app.shared.common.save" | translate }}
+                        </button>
+                        <button class="btn btn-lg btn-info btn-block" ng-click="update(organization)" type="button"
+                                ng-if="organization.id"
+                                ng-class="{'working':isDisabled===true}">
+                            <i class="fa fa-save"></i>
+                            {{"app.shared.common.update" | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

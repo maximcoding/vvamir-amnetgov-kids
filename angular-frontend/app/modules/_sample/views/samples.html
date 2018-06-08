@@ -1,0 +1,155 @@
+<div style="background-color: #FFFFFF;    margin-top: -20px; min-height: 700px;">
+    <div class="panel panel-default">
+        <!--HAV HEADING-->
+        <div class="panel-heading">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left" role="search">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#" ui-sref="admin.createSample" class="btn btn-success">
+                                <i class="fa fa-plus"></i> {{"sample.dashboard.new" | translate}}
+                            </a>
+                        </li>
+                    </ul>
+                </form>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand mynavbar-text" href="#" ui-sref="admin.samples">
+                        <span class="head-title text-capitalize">
+                        {{$state.current.ncyBreadcrumb.label | translate}}
+                    </span>
+                    </a>
+                </div>
+                <form class="navbar-form nav navbar-nav navbar-right" role="search">
+                    <select class="dropdown-toggle form-control active" ng-model="perPage"
+                            ng-change="pageChanged(perPage)"
+                            ng-options="opt as opt.label for opt in units">
+                    </select>
+                </form>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control search-header"
+                               placeholder="{{'app.shared.admin.enterkeyword' | translate}}" ng-model="searchItem"/>
+                        <button type="submit" class="btn btn-link search-header-btn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--HAV HEADING-->
+        <div class="panel-body">
+            <table class="table table-striped table-responsive" id="example2"  ui-jq="dataTable" ui-options="table_options">
+                <thead class="thead-default">
+                <tr>
+                    <th class="text-center" width="2%"><i class="glyphicon glyphicon-pushpin"></i></th>
+                    <th class="" width="15%">{{"sample.table.name" | translate}}</th>
+                    <th class="" width="15%">{{"sample.table.address" | translate}}</th>
+                    <th class="text-center" width="7%">{{"sample.table.phone" | translate}}</th>
+                    <th class="" width="4%">{{"sample.table.type" | translate}}</th>
+                    <th class="" width="5%">{{"sample.table.partners" | translate}}</th>
+                    <th class="text-center" width="5%">{{"sample.table.description" | translate}}</th>
+                    <th class="text-center" width="5%">{{"sample.table.web" | translate}}</th>
+                    <th class="text-center" width="3%">{{"sample.table.status" | translate}}</th>
+                    <th class="text-center" width="7%">{{"sample.table.created_at" | translate}}</th>
+                    <th class="text-center" width="2%">{{"sample.table.actions" | translate}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="sample in samples | orderBy:sortType:sortReverse | filter:searchItem">
+                    <!--CheckBox-->
+                    <td class="text-center">
+                        <div class="text-center checkbox checkbox-primary">
+                            <input id="{{sample.id}}" type="checkbox" class="conchkNumber"
+                                   value="{{sample.name}}" ng-checked="selection.indexOf(sample.id) > -1"
+                                   ng-click="toggleSelection(sample.id)">
+                            <label class="text-center" for="{{sample.id}}">
+                            </label>
+                        </div>
+                    </td>
+                    <!--Name-->
+                    <td class="">
+                        <a href="" data-target="#"
+                           ui-sref="admin.viewSample({id:sample.id})">{{sample.name}}</a>
+                    </td>
+                    <!--Address-->
+                    <td>{{sample.address}}</td>
+                    <!--Phone-->
+                    <td class="text-center">{{sample.phone}}</td>
+                    <!--Type-->
+                    <td class="">{{sample.type}}</td>
+                    <!--Partners-->
+                    <td class="text-center">
+                        <div class="dropdown btn-group" ng-show="sample.id == partner.sample_id"
+                             ng-repeat="partner in partners">
+                            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li class="text-center">
+                                    <p>{{partner.name}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                    <!--Description-->
+                    <td class="text-center">
+                        <div class="dropdown">
+                            <button class="btn btn-default  btn-circle dropdown-toggle" type="button"
+                                    data-toggle="dropdown">
+                                <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <p class="text text-primary text-center">{{sample.description}}</p>
+                            </ul>
+                        </div>
+                    </td>
+                    <!--Web-->
+                    <td class="text-center">
+                        <a class="btn btn-default" target="_blank" ng-href="{{sample.website}}">
+                            <i class="glyphicon  glyphicon-home"></i>
+                        </a>
+                    </td>
+                    <!--Status-->
+                    <td class="text-center switch">
+                        <input ng-click="activate(sample)" show-if-has-permit="update_sample"
+                               id="{{sample.name}}" class="yep-toggle yep-toggle-round-flat yep-success"
+                               ng-checked="sample.status" type="checkbox">
+                        <label for="{{sample.name}}"></label>
+                    </td>
+                    <!--Create At-->
+                    <td class="text-center">{{sample.created_at}}</td>
+                    <!--Actions-->
+                    <td class="text-center">
+                        <div class=" action-buttons">
+                            <a class="blue" ui-sref="admin.viewSample({id:sample.id})"
+                               show-if-has-permit="view_sample">
+                                <i class=" fa fa-search-plus bigger-130"></i>
+                            </a>
+                            <a class="fa fa-pencil-square-o" ui-sref="admin.editSample({id:sample.id})"
+                               show-if-has-permit="view_sample"></a> 
+                            <a ng-click="delete(selection)" show-if-has-permit="delete_sample"><i
+                                    class="fa fa-trash red"></i>
+                                <span class="badge pull-right"></span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <uib-pagination ng-show="pagination.total>10" total-items="pagination.total"
+                                ng-model="pagination.current_page" max-size="maxSize" class="pagination"
+                                boundary-links="true" rotate="false" ng-change="pageChanged(perPage)"
+                                items-per-page="pagination.per_page"></uib-pagination>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
