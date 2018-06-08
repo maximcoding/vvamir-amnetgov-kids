@@ -18,7 +18,7 @@
 * In order to validate, go to command line and type the following command: `netstat -a` (command to find out which all ports are running   in the system) find running 1883 port, that's it.
 
 * Install xxamp/laragon with php 7
-* Install composer.
+* Download Install [composer](https://getcomposer.org/download).
 * Install php artisan `composer global require laravel/installer`
 * Modify php.ini ( uncomment `extension=php_sockets.dll` )
 * Install nodejs.
