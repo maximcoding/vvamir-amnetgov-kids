@@ -10,8 +10,8 @@
  * In the next tab Action tab, choose Allow the connection
  * Next where this rule Applies choose all appropriate Domains, such as Public (entire Internet) or Private (just my local LAN traffic)    or check all for complete access from outside.
    and finally just name the Rule (Mosquitto port 1883) or something similar and press Finish.
-* Install 'mosquitto-1.4.14-install-cygwin.exe' from mqtt install folder ( with error)
-* Fix installation by copying dlls to 'C:\Program File(x86)\mosquitto' 
+* Download and Install [mosquitto-1.4.14-install-cygwin.exe](https://mosquitto.org/download/) or from mqtt install folder
+* Fix installation by copying dlls to `C:\Program File(x86)\mosquitto` 
 * Now run the cygwin build exe installer again. It will run normally this time. click on Finish.
  !! By default the service will not be started. Start the service !!
 * Go to services from Start Menu and find 'Mosquitto Broker'.
@@ -31,7 +31,7 @@
  5. run `php artisan mqtt:serve`
  6. run web socket ratchet server `php artisan chat:serve`
  7. open new tab and run `php artisan serve` now php laravel server is running
- 8. open `http://localhost/angular-frontend/#/login` in browser and login !!! in case login not works (Blueprint library issue) - open database with UI (pgadmin) and extend remember_token character varying to 1000 instead 100.
+ 8. open `http://localhost/angular-frontend/#/login` in browser and login !!! in case login not works (Blueprint library issue) - open database with UI [pgadmin](https://www.pgadmin.org/) and extend `remember_token' character varying to 1000 instead 100.
 
 
 ## Instructions 
