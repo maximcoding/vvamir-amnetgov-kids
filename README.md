@@ -47,7 +47,7 @@ Instructions and description how to use Amnetiot Kids
 
 
 ### How to begin with Application:
-* Login as administrators ( admin@gmail.com )
+* Login as administrators ( email: `admin@gmail.com`  password: `123123`)
 * Add new Organization
 * Create Users with role (managers or users,or custom role) for it Organization
 * Add new AssetsResources (devices ) and assign to it Organization
