@@ -1,4 +1,4 @@
-## Installing Mosquitto MQTT brocker on Windows 10 .
+## Installing Mosquitto MQTT brocker on  Mac
 `brew install mosquitto` 
 
 Install xxamp/laragon with php 7
