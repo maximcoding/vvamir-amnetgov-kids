@@ -53,9 +53,12 @@ Same for Vehicles.
 * Validate that resource_id of the Device(AssetsResource) presents in AssetsResource as owned resource by any Organization
   With the next SQL statement : 
 `( SELECT id FROM assets_resources WHERE imea =your imea )`
-If there is no id value (or its value null) So this resource not presents in Database and seems to be as unknown resource . 
-So store your resource information to assets_resources table And assign it to organization_id with value 1 ( as unknown organization ) and assets_category_id with value 1 (as unknown device category) and in the same time return resource_id with the next SQL statement :
-`INSERT INTO assets_resources (imei,organization_id,assets_category_id) values (your imei , 1 , 1 ) RETURNING id`
-    3 . Now you can report to AVL track with resource_id
+* If there is no id value (or its value null) So this resource not presents in Database and seems to be as unknown resource. 
+
+* Store your resource information to 'assets_resources' table And assign it to 'organization_id' 
+ with value 1 ( as unknown organization ) and 'assets_category_id' with value 1 (as unknown device category) 
+* At the same time return 'resource_id' with the next SQL statement : 
+ `INSERT INTO assets_resources (imei,organization_id,assets_category_id) values (your imei , 1 , 1 ) RETURNING id`
+* Now you able to report AVL track with it 'resource_id'
 
 
