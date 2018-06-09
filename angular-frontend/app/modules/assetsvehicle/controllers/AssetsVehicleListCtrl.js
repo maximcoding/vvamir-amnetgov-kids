@@ -44,7 +44,7 @@ app.controller('AssetsVehicleListCtrl', function ($rootScope,NgMap, AssetsVehicl
         fillOpacity: .5
     };
     $scope.image_icon = {
-        url: '../assets/img/all_maki_icons-no-bg/map-marker.svg',
+        url: 'app/assets/img/all_maki_icons-no-bg/map-marker.svg',
         scaledSize: [30, 30],
         origin: [0, 0]
     };
@@ -70,7 +70,7 @@ app.controller('AssetsVehicleListCtrl', function ($rootScope,NgMap, AssetsVehicl
                  strokeWeight: 2.5,
                  strokeColor: '#033745',
                  //   scaledSize: new google.maps.Size(57, 55),
-                 // url: "../assets/img/poi.png",
+                 // url: "app/assets/img/poi.png",
                  //    scaledSize: new google.maps.Size(57, 55)
                  }*/
             });

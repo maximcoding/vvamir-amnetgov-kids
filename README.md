@@ -1,29 +1,13 @@
 ## Installing Mosquitto MQTT brocker on Windows 10 .
- * Execute in PowerShell as administrator 
- `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux`. 
- * Go to Windows Firewall with Advanced Security  (choose Advanced Settings in Firewall prompt)
- * Click Inbound Rules then on right hand pane  add a New Rule 
-   This will bring up a  New Rules wizard, just follow the prompt entering the following
- * Set rule type as Port.
- * Enter a Specific local port your server is running under WSL, in this case, 1883
- * Choose TCP port
- * In the next tab Action tab, choose Allow the connection
- * Next where this rule Applies choose all appropriate Domains, such as Public (entire Internet) or Private (just my local LAN traffic)    or check all for complete access from outside.
-   and finally just name the Rule (Mosquitto port 1883) or something similar and press Finish.
-* Download and Install [mosquitto-1.4.14-install-cygwin.exe](https://mosquitto.org/download/) or from mqtt install folder
-* Fix installation by copying dlls to `C:\Program File(x86)\mosquitto` 
-* Now run the cygwin build exe installer again. It will run normally this time. click on Finish.
- !! By default the service will not be started. Start the service !!
-* Go to services from Start Menu and find 'Mosquitto Broker'.
-* In order to validate, go to command line and type the following command: `netstat -a` (command to find out which all ports are running   in the system) find running 1883 port, that's it.
+`brew install mosquitto` 
 
-* Install xxamp/laragon with php 7
-* Download Install [composer](https://getcomposer.org/download).
-* Install php artisan `composer global require laravel/installer`
-* Modify php.ini ( uncomment `extension=php_sockets.dll` )
-* Install nodejs.
-* Extract or clone project in www/htdoc apache server folder
-* Install project dependendies 
+Install xxamp/laragon with php 7
+Download Install [composer](https://getcomposer.org/download).
+Install php artisan `composer global require laravel/installer`
+Modify php.ini ( uncomment `extension=php_sockets.dll` )
+Install nodejs.
+Extract or clone project in www/htdoc apache server folder
+Install project dependendies 
  1.`npm install` in project root folder.
  2.`composer install` in laravel-backend folder
  3. validate `php artisan` if works otherwise laravel dependencies again
@@ -32,7 +16,6 @@
  6. run web socket ratchet server `php artisan chat:serve`
  7. open new tab and run `php artisan serve` now php laravel server is running
  8. open `http://localhost/angular-frontend/#/login` in browser and login !!! in case login not works (Blueprint library issue) - open database with UI [pgadmin](https://www.pgadmin.org/) and extend `remember_token' character varying to 1000 instead 100.
-
 
 ## Instructions 
 Instructions and description how to use Amnetiot Kids

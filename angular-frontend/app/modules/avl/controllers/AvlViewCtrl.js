@@ -171,14 +171,14 @@ app.controller('AvlViewCtrl', function ($scope, $stateParams, $cookies, $auth, $
         'zoom_changed': 'fired when the map zoom property changes.'
     };
     var personIcon = new google.maps.MarkerImage(
-        '../assets/img/all_maki_icons-no-bg/person5.svg',
+        'app/assets/img/all_maki_icons-no-bg/person5.svg',
         null, /* size is determined at runtime */
         null, /* origin is 0,0 */
         null, /* anchor is bottom center of the scaled image */
         new google.maps.Size(55, 45)
     );
     var busIcon = new google.maps.MarkerImage(
-        '../assets/img/all_maki_icons-no-bg/bus5.svg',
+        'app/assets/img/all_maki_icons-no-bg/bus5.svg',
         null, /* size is determined at runtime */
         null, /* origin is 0,0 */
         null, /* anchor is bottom center of the scaled image */
@@ -557,12 +557,12 @@ app.controller('AvlViewCtrl', function ($scope, $stateParams, $cookies, $auth, $
         $scope.map.showInfoWindow('foo-iw', avl.avl_id);
     };
     /*    $scope.map_styles = [];
-     $http.get('../assets/map-styles/ng-map-styles.json')
+     $http.get('assets/map-styles/ng-map-styles.json')
      .then(function (response) {
      $scope.map_styles = response.data.styles;
      });
 
-     $http.get('../assets/img/iconset-all_maki_icons.json')
+     $http.get('app/assets/img/iconset-all_maki_icons.json')
      .then(function (response) {
      $scope.icons = response.data;
      });*/

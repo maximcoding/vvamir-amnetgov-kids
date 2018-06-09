@@ -217,7 +217,7 @@ class MQTTClient extends Command
 //                            "sent" => $data->sent,
 //                            "command" => $data->command);
                         if (!$this->WebSocketSender->isConnected()) {
-                            $this->WebSocketSender = new Client("ws://62.219.226.39:8080/");
+                            $this->WebSocketSender = new Client("ws://localhost:8080/");
                         }
                         // $this->WebSocketSender->send(json_encode($msg));
                         $this->WebSocketSender->send($message->getPayload());

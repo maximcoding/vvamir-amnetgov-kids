@@ -175,14 +175,14 @@ app.controller('AvlListCtrl', function (JQ_CONFIG, $scope, $cookies, $auth, $loc
         'tilt_changed': 'fired when the map tilt property changes.',
         'zoom_changed': 'fired when the map zoom property changes.'
     };
-    var personIcon = '../assets/img/all_maki_icons-no-bg/person5.svg';
-    var busIcon = '../assets/img/all_maki_icons-no-bg/bus5.svg';
-    var busPulsing = '../assets/img/all_maki_icons-no-bg/busOG.svg';
-    var busContentImg = '../assets/img/all_maki_icons-no-bg/bus_img.png';
-    var kidPulsing = '../assets/img/all_maki_icons-no-bg/kid-in-bus2.svg';
-    var startIcon = '../assets/img/icons/start1.svg';
-    var endIcon = '../assets/img/icons/finish1.svg';
-    var turnIcon = '../assets/img/icons/circule-red.svg';
+    var personIcon = 'app/assets/img/all_maki_icons-no-bg/person5.svg';
+    var busIcon = 'app/assets/img/all_maki_icons-no-bg/bus5.svg';
+    var busPulsing = 'app/assets/img/all_maki_icons-no-bg/busOG.svg';
+    var busContentImg = 'app/assets/img/all_maki_icons-no-bg/bus_img.png';
+    var kidPulsing = 'app/assets/img/all_maki_icons-no-bg/kid-in-bus2.svg';
+    var startIcon = 'app/assets/img/icons/start1.svg';
+    var endIcon = 'app/assets/img/icons/finish1.svg';
+    var turnIcon = 'app/assets/img/icons/circule-red.svg';
 
     function createMarkerImage(iconUrl, height, width) {
         return new google.maps.MarkerImage(
@@ -610,12 +610,12 @@ app.controller('AvlListCtrl', function (JQ_CONFIG, $scope, $cookies, $auth, $loc
         $scope.map.showInfoWindow('foo-iw', avl.avl_id);
     };
     /*    $scope.map_styles = [];
-     $http.get('../assets/map-styles/ng-map-styles.json')
+     $http.get('assets/map-styles/ng-map-styles.json')
      .then(function (response) {
      $scope.map_styles = response.data.styles;
      });
 
-     $http.get('../assets/img/iconset-all_maki_icons.json')
+     $http.get('app/assets/img/iconset-all_maki_icons.json')
      .then(function (response) {
      $scope.icons = response.data;
      });*/

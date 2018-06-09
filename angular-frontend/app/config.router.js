@@ -67,7 +67,7 @@ app
             .preferredLanguage('en-us');
 
         /* angular locale dynamic load */
-        tmhDynamicLocaleProvider.localeLocationPattern('../assets/vendors/angularjs/js/i18n/angular-locale_{{locale}}.js');
+        tmhDynamicLocaleProvider.localeLocationPattern('app/assets/vendors/angularjs/js/i18n/angular-locale_{{locale}}.js');
         /**
          * Angular-ui-notification
          */
@@ -2816,7 +2816,7 @@ app
     .service('WebSocketService', function ($websocket, $rootScope) {
         // Open a WebSocket connection websocket
         var ws = null;
-        var wsUri = "ws://62.219.226.39:8080/";
+        var wsUri = "ws://localhost:8080/";
         var isConnected = false;
         var open_websocket = function () {
 

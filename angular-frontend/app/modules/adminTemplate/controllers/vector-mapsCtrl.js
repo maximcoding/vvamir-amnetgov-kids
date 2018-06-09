@@ -322,8 +322,8 @@ app.controller('vector-mapsCtrl',function($scope){
             },{
                 attribute: 'image',
                 scale: {
-                    bank: '../assets/vendors/jquery-jvectormap/img/icon-bank.png',
-                    factory: '../assets/vendors/jquery-jvectormap/img/icon-factory.png'
+                    bank: 'assets/vendors/jquery-jvectormap/img/icon-bank.png',
+                    factory: 'assets/vendors/jquery-jvectormap/img/icon-factory.png'
                 },
                 values: {
                     '4': 'bank',
@@ -353,8 +353,8 @@ app.controller('vector-mapsCtrl',function($scope){
                 }
             },{
                 scale: {
-                    redGreen: '../assets/vendors/jquery-jvectormap/img/bg-red-green2.png',
-                    yellowBlue: '../assets/vendors/jquery-jvectormap/img/bg-yellow-blue.png'
+                    redGreen: 'assets/vendors/jquery-jvectormap/img/bg-red-green2.png',
+                    yellowBlue: 'assets/vendors/jquery-jvectormap/img/bg-yellow-blue.png'
                 },
                 values: {
                     "US-TX": 'redGreen',
@@ -414,9 +414,9 @@ app.controller('vector-mapsCtrl',function($scope){
             markers: [{
                 attribute: 'image',
                 scale: {
-                    'closed': '../assets/vendors/jquery-jvectormap/img/icon-np-3.png',
-                    'activeUntil2018': '../assets/vendors/jquery-jvectormap/img/icon-np-2.png',
-                    'activeUntil2022': '../assets/vendors/jquery-jvectormap/img/icon-np-1.png'
+                    'closed': 'assets/vendors/jquery-jvectormap/img/icon-np-3.png',
+                    'activeUntil2018': 'assets/vendors/jquery-jvectormap/img/icon-np-2.png',
+                    'activeUntil2022': 'assets/vendors/jquery-jvectormap/img/icon-np-1.png'
                 },
                 values:   $scope.plants.reduce(function(p, c, i){ p[i] = c.status; return p }, {}),
                 legend: {

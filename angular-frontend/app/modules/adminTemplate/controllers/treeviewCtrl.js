@@ -14,7 +14,7 @@ app.controller('treeviewCtrl',function($scope){
                     }
                 }, {
                     text: "Animation",
-                    icon: "../assets/img/jstree-icon/tree_icon.png"
+                    icon: "app/assets/img/jstree-icon/tree_icon.png"
                 }, {
                     text: "Office",
                     state: {
@@ -45,7 +45,7 @@ app.controller('treeviewCtrl',function($scope){
                     }
                 }, {
                     "text": "custom icon URL",
-                    "icon": "../assets/img/jstree-icon/tree_icon.png"
+                    "icon": "app/assets/img/jstree-icon/tree_icon.png"
                 }, {
                     "text": "initially open",
                     "state": {
