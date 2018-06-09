@@ -116,8 +116,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr ng-repeat="role in roles | orderBy:sortType:sortReverse | filter:searchItem "
-                ">
+                <tr ng-repeat="role in roles | orderBy:sortType:sortReverse | filter:searchItem ">
                 <td class="text-center">
                     <div class="text-center checkbox checkbox-primary">
                         <input id="{{role.id}}" type="checkbox" class="conchkNumber"
@@ -132,20 +131,10 @@
                 <td data-title="Description">{{role.description}}</td>
                 <td data-title="Description">{{role.created_at}}</td>
                 <td class="text-center">
-                    <!--   <a class="blue" href="#" show-if-has-permit="view_role"
-                          ui-sref="admin.viewRole({id:role.id})">
-                           <i class="fa fa-eye bigger-130" title="{{'role.form.view' | translate}}"></i>
-                       </a>-->
                     <a class="gray" ui-sref="admin.editRole({id:role.id})"
                        show-if-has-permit="edit_role">
-                        <i class="fa fa-pencil-square-o" title="{{'role.form.edit' | translate}}"></i>
+                        <i class="fa fa-pencil-square-o"></i>
                     </a>
-                    <!--   <a ng-click="delete(selection)" show-if-has-permit="delete_role" style="cursor: pointer">
-                           <i class="fa fa-trash red" title="{{'role.form.delete' | translate}}"></i>
-                           <span class="badge pull-right"></span>
-                       </a>-->
-                    <!--<a class="fa fa-eye" ui-sref="admin.viewRole({id:role.id})"></a>
-                    <a class="fa fa-pencil-square-o" ui-sref="admin.editRole({id:role.id})"></a>-->
                 </td>
                 </tr>
                 </tbody>

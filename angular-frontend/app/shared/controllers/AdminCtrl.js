@@ -1,10 +1,9 @@
 "use strict";
-var app = angular.module('ng-laravel');
-app.controller('AdminCtrl', function (JQ_CONFIG, WebSocketService, MessageService, $localStorage, $timeout, $scope, $filter, $http, $auth, $injector, UserService, hotkeys, $state, $translate, $rootScope, $translatePartialLoader, uibPaginationConfig, trans) {
+angular.module('ng-laravel').controller('AdminCtrl', function (JQ_CONFIG, WebSocketService, MessageService, $localStorage, $timeout, $scope, $filter, $http, $auth, $injector, UserService, hotkeys, $state, $translate, $rootScope, $translatePartialLoader, uibPaginationConfig, trans) {
 
     var commands = JQ_CONFIG['COMMANDS'];
 
-    if ($localStorage.data == undefined) {
+    if (!$localStorage.data) {
         $localStorage.data = {};
     }
 
@@ -34,32 +33,34 @@ app.controller('AdminCtrl', function (JQ_CONFIG, WebSocketService, MessageServic
         /* Get user profile info */
         $scope.user_online = WebSocketService.status();
         $scope.profile = $auth.getProfile().$$state.value;
-        UserService.list($scope.profile.organization_id).then(function (data) {
-            angular.forEach(data, function (org_user) {
-                org_user.last_token_time = moment.utc(org_user.last_token_time).local().calendar();
-                $scope.organization_users.push(org_user);
-            })
-        }).then(function () {
-            MessageService.listFromTime($scope.profile.id).then(function (response) {
-                $scope.user_online = WebSocketService.status();
-                $scope.chat_messages = [];
-                var count = 0;
-                angular.forEach(response, function (message) {
-                    message.avatar_url = '';
-                    count++;
-                    message.created_at = moment.utc(message.created_at).local().calendar();
-                    angular.forEach($scope.organization_users, function (org_user) {
-                        if (org_user.user_id == message.sender_id) {
-                            message.firstname = org_user.firstname;
-                            message.lastname = org_user.lastname;
-                            message.avatar_url = org_user.avatar_url;
-                            $scope.chat_messages.push(message);
-                        }
-                    });
+        if ($scope.profile) {
+            UserService.list($scope.profile.organization_id).then(function (data) {
+                angular.forEach(data, function (org_user) {
+                    org_user.last_token_time = moment.utc(org_user.last_token_time).local().calendar();
+                    $scope.organization_users.push(org_user);
                 })
-                $scope.bell_notification_count = count;
-            });
-        })
+            }).then(function () {
+                MessageService.listFromTime($scope.profile.id).then(function (response) {
+                    $scope.user_online = WebSocketService.status();
+                    $scope.chat_messages = [];
+                    var count = 0;
+                    angular.forEach(response, function (message) {
+                        message.avatar_url = '';
+                        count++;
+                        message.created_at = moment.utc(message.created_at).local().calendar();
+                        angular.forEach($scope.organization_users, function (org_user) {
+                            if (org_user.user_id == message.sender_id) {
+                                message.firstname = org_user.firstname;
+                                message.lastname = org_user.lastname;
+                                message.avatar_url = org_user.avatar_url;
+                                $scope.chat_messages.push(message);
+                            }
+                        });
+                    })
+                    $scope.bell_notification_count = count;
+                });
+            })
+        }
     }
 
     init();

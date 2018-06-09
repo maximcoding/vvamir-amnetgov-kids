@@ -1,8 +1,8 @@
 "use strict";
 
-var app = angular.module('ng-laravel',['xeditable','ui.bootstrap','checklist-model']);
-app.controller('form-pluginsCtrl',function($scope,$filter,$http,$q){
-    
+var app = angular.module('ng-laravel', ['xeditable', 'ui.bootstrap', 'checklist-model']);
+app.controller('form-pluginsCtrl', function ($scope, $filter, $http, $q) {
+
     $scope.fromDateOptions = {
         defaultDate: "+1w",
         changeMonth: true,
@@ -28,7 +28,7 @@ app.controller('form-pluginsCtrl',function($scope,$filter,$http,$q){
     // x-editable sample
     $scope.user = {
         name: 'superuser',
-        family:'',
+        family: '',
         status: 2,
         group: 4,
         groupName: 'Admin', // original value,
@@ -48,26 +48,25 @@ app.controller('form-pluginsCtrl',function($scope,$filter,$http,$q){
     ];
 
 
-
     // Local Validation
-    $scope.checkName = function(data) {
+    $scope.checkName = function (data) {
         if (data == '') {
             return "This filed is required!";
         }
     };
 
     // Remote validation
-    $scope.checkRemote = function(data) {
+    $scope.checkRemote = function (data) {
         var d = $q.defer();
-        $http.post('/checkName', {value: data}).success(function(res) {
+        $http.post('/checkName', {value: data}).then(function (res) {
             res = res || {};
-            if(res.status === 'ok') { // {status: "ok"}
+            if (res.status === 'ok') { // {status: "ok"}
                 d.resolve()
             } else { // {status: "error", msg: "Username should be `awesome`!"}
                 d.resolve(res.msg)
             }
-        }).error(function(e) {
-            d.reject('Server error!');
+        }, function (e) {
+            d.reject('remote validation error', e);
         });
         return d.promise;
     };
@@ -79,7 +78,7 @@ app.controller('form-pluginsCtrl',function($scope,$filter,$http,$q){
         {value: 3, text: 'Status3'},
         {value: 4, text: 'Status4'}
     ];
-    $scope.showStatus = function() {
+    $scope.showStatus = function () {
         var selected = $filter('filter')($scope.statuses, {value: $scope.user.status});
         return ($scope.user.status && selected.length) ? selected[0].text : 'Not set';
     };
@@ -87,20 +86,20 @@ app.controller('form-pluginsCtrl',function($scope,$filter,$http,$q){
 
     // Select, remote array, no buttons
     $scope.groups = [];
-    $scope.loadGroups = function() {
-        return $scope.groups.length ? null : $http.get('/groups').success(function(data) {
+    $scope.loadGroups = function () {
+        return $scope.groups.length ? null : $http.get('/groups').then(function (data) {
             $scope.groups = data;
         });
     };
-    $scope.$watch('user.group', function(newVal, oldVal) {
+    $scope.$watch('user.group', function (newVal, oldVal) {
         if (newVal !== oldVal) {
             var selected = $filter('filter')($scope.groups, {id: $scope.user.group});
             $scope.user.groupName = selected.length ? selected[0].text : null;
         }
     });
 
-    $scope.showGroup = function(user) {
-        if(user.group && $scope.groups.length) {
+    $scope.showGroup = function (user) {
+        if (user.group && $scope.groups.length) {
             var selected = $filter('filter')($scope.groups, {id: user.group});
             return selected.length ? selected[0].text : 'Not set';
         } else {
@@ -108,21 +107,21 @@ app.controller('form-pluginsCtrl',function($scope,$filter,$http,$q){
         }
     };
 
-    $scope.saveUser = function(data, id) {
+    $scope.saveUser = function (data, id) {
         //$scope.user not updated yet
         angular.extend(data, {id: id});
         return $http.post('/saveUser', data);
     };
 
     // remove user
-    $scope.removeUser = function(index) {
+    $scope.removeUser = function (index) {
         $scope.users.splice(index, 1);
     };
 
     // add user
-    $scope.addUser = function() {
+    $scope.addUser = function () {
         $scope.inserted = {
-            id: $scope.users.length+1,
+            id: $scope.users.length + 1,
             name: '',
             status: null,
             group: null
@@ -141,9 +140,9 @@ app.controller('form-pluginsCtrl',function($scope,$filter,$http,$q){
         {value: 2, text: 'Orange'},
         {value: 3, text: 'Banana'}
     ];
-    $scope.showFruit = function() {
+    $scope.showFruit = function () {
         var selected = [];
-        angular.forEach($scope.fruits, function(s) {
+        angular.forEach($scope.fruits, function (s) {
             if ($scope.user.fruit.indexOf(s.value) >= 0) {
                 selected.push(s.text);
             }
@@ -158,7 +157,7 @@ app.controller('form-pluginsCtrl',function($scope,$filter,$http,$q){
         {value: 2, text: 'Female'}
     ];
 
-    $scope.showGender = function() {
+    $scope.showGender = function () {
         var selected = $filter('filter')($scope.genders, {value: $scope.user.gender});
         return ($scope.user.gender && selected.length) ? selected[0].text : 'Not set';
     };

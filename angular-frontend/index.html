@@ -5,27 +5,27 @@
     <title>AMetIoT Tracking</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app/assets/vendors/bootstrap/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="../assets/css/yep-rtl.min.css" ng-if="currentDirection==='rtl'">
-    <link rel="stylesheet" href="../assets/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="app/assets/css/yep-rtl.min.css" ng-if="currentDirection==='rtl'">
+    <link rel="stylesheet" href="app/assets/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="app/vendors/angular-ui-router-anim-in-out/css/anim-in-out.min.css">
     <link rel="stylesheet" href="app/vendors/ui-select/css/select.min.css">
     <!-- Related css to this page -->
     <link rel="stylesheet" href="app/vendors/angular-hotkeys/css/hotkeys.min.css">
     <link rel="stylesheet" href="app/vendors/angular-ui-notification/css/angular-ui-notification.min.css">
     <!-- Yeptemplate css --><!-- Please use *.min.css in production -->
-    <link rel="stylesheet" href="../assets/vendors/bower_components/ngprogress/ngProgress.css">
-    <link rel="stylesheet" id="yep-style" href="../assets/css/yep-style.css">
-    <link rel="stylesheet" href="../assets/css/yep-vendors.css">
-    <link rel="stylesheet" href="../assets/css/yep-custom.css">
-    <link rel="stylesheet" href="../assets/css/added-styles.css">
-    <link rel="stylesheet" href="../assets/css/added-for-chat.css">
-    <!--<link rel="stylesheet" href="../assets/vendors/bower_components/material/angular-material.min.css">-->
+    <link rel="stylesheet" href="app/assets/vendors/bower_components/ngprogress/ngProgress.css">
+    <link rel="stylesheet" id="yep-style" href="app/assets/css/yep-style.css">
+    <link rel="stylesheet" href="app/assets/css/yep-vendors.css">
+    <link rel="stylesheet" href="app/assets/css/yep-custom.css">
+    <link rel="stylesheet" href="app/assets/css/added-styles.css">
+    <link rel="stylesheet" href="app/assets/css/added-for-chat.css">
+    <!--<link rel="stylesheet" href="app/assets/vendors/bower_components/material/angular-material.min.css">-->
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="../assets/img/favicon/favicon.ico?v=2" type="image/x-icon">
-    <link rel="icon" href="../assets/img/favicon/favicon.ico?v=2" type="image/x-icon">
+    <link rel="shortcut icon" href="app/assets/img/favicon/favicon.ico?v=2" type="image/x-icon">
+    <link rel="icon" href="app/assets/img/favicon/favicon.ico?v=2" type="image/x-icon">
 </head>
 
 <body id="mainbody" class="full"
@@ -36,35 +36,35 @@
 <!-- end #container -->
 
 <!-- General JS script library-->
-<script type="text/javascript" src="../assets/vendors/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="../assets/vendors/jquery-ui/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="../assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="app/assets/vendors/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="app/assets/vendors/jquery-ui/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="app/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="../assets/vendors/jquery-searchable/js/jquery.searchable.min.js"></script>
-<script type="text/javascript" src="../assets/vendors/jquery-fullscreen/js/jquery.fullscreen.min.js"></script>
+<script type="text/javascript" src="app/assets/vendors/jquery-searchable/js/jquery.searchable.min.js"></script>
+<script type="text/javascript" src="app/assets/vendors/jquery-fullscreen/js/jquery.fullscreen.min.js"></script>
 
 <script type="text/javascript" src="//rawgit.com/googlemaps/v3-utility-library/master/infobox/src/infobox.js"></script>
 
 <!--NG-MAP-->
-<!--AIzaSyDW9hD3wx0xleEsVeJd8tewgjPIo5KjM9w-->
-<script src='https://maps.google.com/maps/api/js?v=3&amp;libraries=places&key=AIzaSyDW9hD3wx0xleEsVeJd8tewgjPIo5KjM9w'></script>
+<!--AIzaSyCgogilkxO9fNZGPn9DOAPb2sTftIpYLzU-->
+<script src='https://maps.google.com/maps/api/js?v=3&amp;libraries=places&key=AIzaSyCgogilkxO9fNZGPn9DOAPb2sTftIpYLzU'></script>
 
-<script src="../assets/vendors/angularjs/js/angular.min.js"></script>
+<script src="app/assets/vendors/angularjs/js/angular.min.js"></script>
 <!--WEB SOCKET-->
-<script src="../assets/vendors/bower_components/angular-websocket/dist/angular-websocket.js"></script>
-<script src="../assets/vendors/angularjs/js/angular-animate.min.js"></script>
-<script src="../assets/vendors/angularjs/js/angular-aria.min.js"></script>
-<script src="../assets/vendors/angularjs/js/angular-messages.min.js"></script>
-<script src="../assets/vendors/bower_components/ngprogress/build/ngprogress.js"></script>
-<script src="../assets/vendors/angularjs/js/angular-sanitize.min.js"></script>
-<script src="../assets/vendors/angularjs/js/angular-route.min.js"></script>
-<script src="../assets/vendors/angularjs/js/angular-resource.js"></script>
-<script src="../assets/vendors/angularjs/js/angular-cookies.min.js"></script>
-<script src="../assets/vendors/underscore/js/underscore.min.js"></script>
+<script src="app/assets/vendors/bower_components/angular-websocket/dist/angular-websocket.js"></script>
+<script src="app/assets/vendors/angularjs/js/angular-animate.min.js"></script>
+<script src="app/assets/vendors/angularjs/js/angular-aria.min.js"></script>
+<script src="app/assets/vendors/angularjs/js/angular-messages.min.js"></script>
+<script src="app/assets/vendors/bower_components/ngprogress/build/ngprogress.js"></script>
+<script src="app/assets/vendors/angularjs/js/angular-sanitize.min.js"></script>
+<script src="app/assets/vendors/angularjs/js/angular-route.min.js"></script>
+<script src="app/assets/vendors/angularjs/js/angular-resource.js"></script>
+<script src="app/assets/vendors/angularjs/js/angular-cookies.min.js"></script>
+<script src="app/assets/vendors/underscore/js/underscore.min.js"></script>
 <script src="app/vendors/restangular/restangular.min.js"></script><!-- it's dependent to underscore.js -->
 <script src="app/vendors/ui-router/angular-ui-router.min.js"></script>
 <script src="app/vendors/angular-ui-router-anim-in-out/js/anim-in-out.min.js"></script>
-<script src="../assets/vendors/oclazyload/js/ocLazyLoad.min.js"></script>
+<script src="app/assets/vendors/oclazyload/js/ocLazyLoad.min.js"></script>
 <script src="app/vendors/angular-jwt/angular-jwt.min.js"></script>
 <script src="app/vendors/ng-storage/ngStorage.min.js"></script>
 <script src="app/vendors/ng-aa/ng-aa.js"></script>
@@ -94,7 +94,7 @@
 <script src="app/shared/services/TranslationsFactory.js"></script>
 
 <!--Material Design-->
-<!--<script src="../assets/vendors/bower_components/material/angular-material.min.js"></script>-->
+<!--<script src="app/assets/vendors/bower_components/material/angular-material.min.js"></script>-->
 
 <!--
  you can load any jquery script in your view, but it's not true and you should write a directive for any scripts.

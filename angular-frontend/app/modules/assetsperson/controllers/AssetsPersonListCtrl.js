@@ -23,7 +23,7 @@ app.controller('AssetsPersonListCtrl', function ($scope, NgMap, $rootScope, Asse
             $scope.map.showInfoWindow('info-id', point.other.id);
         };
         var personIcon = new google.maps.MarkerImage(
-            '../assets/img/all_maki_icons-no-bg/person5.svg',
+            'app/assets/img/all_maki_icons-no-bg/person5.svg',
             null, /* size is determined at runtime */
             null, /* origin is 0,0 */
             null, /* anchor is bottom center of the scaled image */

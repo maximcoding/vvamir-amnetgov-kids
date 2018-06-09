@@ -43,7 +43,6 @@ app.controller('OrganizationCreateCtrl', function ($scope, $http, $q,$rootScope,
      */
     $scope.create = function () {
         $scope.isDisabled = true;
-        console.log($scope.organization);
         OrganizationService.create($scope.organization);
         $scope.place = {};
     };
