@@ -1,13 +1,13 @@
 ## Installing Mosquitto MQTT brocker on  Mac
 `brew install mosquitto` 
 
-Install xxamp/laragon with php 7
-Download Install [composer](https://getcomposer.org/download).
-Install php artisan `composer global require laravel/installer`
-Modify php.ini ( uncomment `extension=php_sockets.dll` )
-Install nodejs.
-Extract or clone project in www/htdoc apache server folder
-Install project dependendies 
+* Install xxamp/laragon with php 7
+* Download Install [composer](https://getcomposer.org/download).
+* Install php artisan `composer global require laravel/installer`
+* Modify php.ini ( uncomment `extension=php_sockets.dll` )
+* Install nodejs.
+* Extract or clone project in www/htdoc apache server folder
+* Install project dependendies 
  1.`npm install` in project root folder.
  2.`composer install` in laravel-backend folder
  3. validate `php artisan` if works otherwise laravel dependencies again
