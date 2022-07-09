@@ -1,33 +1,36 @@
 ## **Amnetiot kids**
-_@VVAMIR Safe Tracking Application_
+_Safe Tracking Application (by VVAMIR Company)_
 __________________________________________________
 #####  Tech Stack used in the Project
- - ###### [PHP Laravel Framework](https://laravel.com/)
- - ###### PostgreSQL
- - ###### Angularjs
- - ###### [MQTT](https://mqtt.org/)
- - ###### Websockets on [Ratchet Server](https://github.com/ratchetphp/Ratchet)
- - ###### Nodejs
- - ###### Google Maps / Leaflet Maps
+   - **[PHP Laravel Framework](https://laravel.com/)**
+   - **PostgreSQL**
+   - **Angularjs**
+   - **[MQTT](https://mqtt.org/)**
+   - **Websockets on [Ratchet Server](https://github.com/ratchetphp/Ratchet)**
+   - **Nodejs**
+   - **Google Maps / Leaflet Maps**
 __________________________________________________
 #####  Installation Process:
-* Install Mosquitto MQTT brocker - `brew install mosquitto`  (for Mac users).
-* Install [_nodejs_](https://nodejs.org/en/).
-* Install _xxamp/laragon_ with _**php 7**_
-* Install [_composer_](https://getcomposer.org/download).
-* Install _php artisan_ `composer global require laravel/installer`
-* Modify _**php.ini**_ ( uncomment `extension=php_sockets.dll` )
-* Extract or clone project in www/htdoc apache server folder.
-* Install project dependendies. 
-* `npm install` in project root folder.
-* `composer install` in laravel-backend folder.
-* validate `php artisan` if works otherwise laravel dependencies again.
-* run migration with ```php artisan migrate``` .
-* run `php artisan mqtt:serve`.
-* run web socket ratchet server `php artisan chat:serve`.
-* open new tab and run `php artisan serve` - now php laravel server is running.
-* Open `http://localhost/angular-frontend/#/login` in browser and login. 
- * In case login is not works (_Blueprint library issue_): 
+-  Open Terminal or CMD window and install next:
+   - Install [Mosquitto MQTT brocker](https://mosquitto.org/) with `brew install mosquitto`  (for Mac users).
+   - Install [_nodejs_](https://nodejs.org/en/).
+   - Install _xxamp/laragon_ with _**php 7**_
+   - Install [_composer_](https://getcomposer.org/download).
+   - Install _php artisan_ `composer global require laravel/installer`
+#####  Configuration Process:
+- Modify _**php.ini**_ ( uncomment `extension=php_sockets.dll` )
+- Extract or clone project in www/htdoc apache server folder.
+- run `npm install` in project root folder.
+- run `composer install` in laravel-backend folder to install laravel dependencies.
+- run `php artisan` - validate if works, otherwise run composer command again.
+* run migration with ```php artisan migrate```.
+
+#####  Runtime Process:
+* run `php artisan mqtt:serve`. -to run Real Time message broker service.
+* run `php artisan chat:serve` - run execute WebSocket ratchet server.
+* open another Terminal or CMD window, and run `php artisan serve` - now php laravel server is running.
+* open Web Browser (Chrome / Mozilla) and past to url `http://localhost/angular-frontend/#/login` -  you should see login page. 
+ * In case login page is not working (_Blueprint library issue_): 
    1. Open database with UI [pgadmin](https://www.pgadmin.org/) .
    2. Extend field ```remember_token``` character varying to  **1000** instead default **100**.
 __________________________________________________
